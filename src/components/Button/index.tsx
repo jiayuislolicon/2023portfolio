@@ -1,5 +1,5 @@
 const Button = () => {
-	return <button>asdf</button>;
+	return <button className='text-3xl'>asdf</button>;
 };
 
 export default Button;
