@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"@storybook/addon-interactions": "^7.0.5",
+		"class-variance-authority": "^0.5.2",
 		"lottie-web": "^5.11.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
