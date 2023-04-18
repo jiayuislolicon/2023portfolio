@@ -1,5 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Noto+Sans+TC:wght@400;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Noto+Sans+TC:wght@400;500&display=swap');
+.sb-show-main.sb-main-padded {
+	padding: 0;
+}
+
+html {
+	font-size: 14px;
+
+	@screen lg {
+		font-size: 1.11vw;
+	}
+}
+
+@layer base {
+	body {
+		@apply text-normal;
+	}
+
+	f3 {
+		@apply text-xl;
+	}
+
+	f2 {
+		@apply text-2xl;
+	}
+
+	f1 {
+		@apply text-3xl;
+	}
+
+	h1 {
+		@apply text-h1;
+	}
+
+	h2 {
+		@apply text-h2;
+	}
+
+	h3 {
+		@apply text-h3;
+	}
+
+	@screen lg {
+		f3 {
+			@apply text-xl-lg;
+		}
+
+		f2 {
+			@apply text-2xl-lg;
+		}
+
+		f1 {
+			@apply text-3xl-lg;
+		}
+
+		h1 {
+			@apply text-h1-lg;
+		}
+
+		h2 {
+			@apply text-h2-lg;
+		}
+
+		h3 {
+			@apply text-h3-lg;
+		}
+	}
+}
