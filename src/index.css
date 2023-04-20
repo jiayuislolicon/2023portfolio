@@ -20,15 +20,15 @@ html {
 		@apply text-normal;
 	}
 
-	f3 {
+	.text-normal-xl {
 		@apply text-xl;
 	}
 
-	f2 {
+	.text-normal-2xl {
 		@apply text-2xl;
 	}
 
-	f1 {
+	.text-normal-3xl {
 		@apply text-3xl;
 	}
 
@@ -45,15 +45,15 @@ html {
 	}
 
 	@screen lg {
-		f3 {
+		.text-normal-xl {
 			@apply text-xl-lg;
 		}
 
-		f2 {
+		.text-normal-2xl {
 			@apply text-2xl-lg;
 		}
 
-		f1 {
+		.text-normal-3xl {
 			@apply text-3xl-lg;
 		}
 
