@@ -10,5 +10,7 @@ export default meta;
 type Story = StoryObj<typeof MainVisual>;
 
 export const Primary: Story = {
-	render: () => <MainVisual />,
+	args: {
+		width: 1024,
+	},
 };

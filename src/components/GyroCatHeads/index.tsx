@@ -23,15 +23,15 @@ const GyroCatHeads = () => {
 		<div className='absolute top-0 left-0 w-full h-screen'>
 			{catInfos.map((info, index) => (
 				<div
-					className={`absolute bottom-[${info.position}%] grid w-full place-items-center`}
-					key={`cat-heads-${info.type}`}
+					className={`absolute ${info.position} grid w-full place-items-center`}
+					key={`gyro-cat-heads-${info.type}`}
 				>
 					<CatHead
 						isMobile
 						mouseX={mousePosX / (index + 2)}
 						mouseY={0}
 						type={info.type}
-						className={`w-[${info.size}vw] h-auto md:w-[${info.padSize}vw]`}
+						className={info.sizeClass}
 					/>
 				</div>
 			))}

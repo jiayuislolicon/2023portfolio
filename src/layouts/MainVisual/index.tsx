@@ -1,7 +1,12 @@
 import BgCircle from "../../components/BgCircle";
 import GyroCatHeads from "../../components/GyroCatHeads";
+import HorCatHeads from "../../components/HorCatHeads";
 
-const MainVisual = () => {
+type Props = {
+	width: number;
+};
+
+const MainVisual = ({ width }: Props) => {
 	return (
 		<section className='pt-10'>
 			<div className='relative z-[1] flex flex-col items-center lg:flex-row lg:justify-center'>
@@ -18,7 +23,7 @@ const MainVisual = () => {
 				</div>
 			</div>
 			<BgCircle color='green-blue' round />
-			<GyroCatHeads />
+			{width >= 1024 ? <HorCatHeads className='mt-[-7vw] px-[45px]' /> : <GyroCatHeads />}
 		</section>
 	);
 };

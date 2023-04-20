@@ -6,7 +6,7 @@ type Props = {
 };
 
 const CircleVariants = cva(
-	"absolute left-1/2 top-[57.5vw] -translate-x-1/2 rounded-full w-[259.2vw] h-[259.2vw] lg:w-screen lg:h-[100vw] transition-all duration-1000",
+	"absolute left-1/2 top-[57.5vw] lg:top-[62.5vh] -translate-x-1/2 rounded-full w-[259.2vw] h-[259.2vw] lg:w-screen lg:h-[100vw] transition-all duration-1000",
 	{
 		variants: {
 			/* button roundness */
@@ -29,7 +29,7 @@ const CircleVariants = cva(
 
 const BgCircle = ({ round, color }: Props) => {
 	return (
-		<div className='relative w-screen h-screen overflow-hidden'>
+		<div className='absolute top-0 left-0 w-screen h-screen overflow-hidden'>
 			<div className={CircleVariants({ round: round ? "full" : "none", color })} />
 		</div>
 	);

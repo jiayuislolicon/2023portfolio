@@ -1,27 +1,23 @@
 type TCatInfo = {
-	size: number;
-	position: number;
-	padSize: number;
+	sizeClass: string;
+	position: string;
 	type: "khaki" | "black" | "white";
 };
 
 const catInfos: TCatInfo[] = [
 	{
-		size: 74,
-		padSize: 36,
-		position: 49.2,
+		sizeClass: "w-[74vw] h-auto md:w-[36vw]",
+		position: "bottom-[49.2%] md:bottom-[46%]",
 		type: "khaki",
 	},
 	{
-		size: 79,
-		padSize: 38,
-		position: 25.2,
+		sizeClass: "w-[79vw] h-auto md:w-[38vw]",
+		position: "bottom-[25.2%]",
 		type: "black",
 	},
 	{
-		size: 84,
-		padSize: 42,
-		position: -2,
+		sizeClass: "w-[84vw] h-auto md:w-[42vw]",
+		position: "bottom-[2%]",
 		type: "white",
 	},
 ];
