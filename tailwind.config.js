@@ -29,6 +29,15 @@ export default {
 				h3: "5.5rem",
 				"h3-lg": "9rem",
 			},
+			keyframes: {
+				scale: {
+					"0%": { transform: "scale(0)" },
+					"100%": { transform: "scale(1)" },
+				},
+			},
+			animation: {
+				"scale-large": "scale 0.3s",
+			},
 		},
 	},
 	plugins: [],
