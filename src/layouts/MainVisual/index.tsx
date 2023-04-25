@@ -25,7 +25,11 @@ const MainVisual = ({ width }: Props) => {
 			<span className='text-normal-2xl text-light-yelow hidden lg:block absolute bottom-[4vh] left-1/2 -translate-x-1/2 z-[2]'>
 				2023 PORTFOLIO
 			</span>
-			<BgCircle color='green-blue' round />
+			<BgCircle
+				color='green-blue'
+				round
+				className='absolute left-1/2 top-[57.5vw] lg:top-[62.5vh] -translate-x-1/2 '
+			/>
 			{width >= 1024 ? <HorCatHeads className='mt-[-7vw] px-[45px]' /> : <GyroCatHeads />}
 		</section>
 	);

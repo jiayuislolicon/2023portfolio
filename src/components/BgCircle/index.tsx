@@ -3,10 +3,11 @@ import { cva } from "class-variance-authority";
 type Props = {
 	round: boolean;
 	color: "green-blue" | "white";
+	className?: string;
 };
 
-const CircleVariants = cva(
-	"absolute left-1/2 top-[57.5vw] lg:top-[62.5vh] -translate-x-1/2 rounded-full w-[259.2vw] h-[259.2vw] lg:w-screen lg:h-[100vw] transition-all duration-1000",
+const circleVariants = cva(
+	"rounded-full w-[259.2vw] h-[259.2vw] lg:w-screen lg:h-[100vw] transition-all duration-1000",
 	{
 		variants: {
 			/* button roundness */
@@ -27,10 +28,10 @@ const CircleVariants = cva(
 	}
 );
 
-const BgCircle = ({ round, color }: Props) => {
+const BgCircle = ({ round, color, className }: Props) => {
 	return (
 		<div className='absolute top-0 left-0 w-screen h-screen overflow-hidden'>
-			<div className={CircleVariants({ round: round ? "full" : "none", color })} />
+			<div className={circleVariants({ round: round ? "full" : "none", color, className })} />
 		</div>
 	);
 };

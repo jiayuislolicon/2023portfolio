@@ -2,7 +2,7 @@ import { ReactComponent as Email } from "./icon-email.svg";
 import { ReactComponent as Facebook } from "./icon-facebook.svg";
 import { ReactComponent as Github } from "./icon-github.svg";
 
-type Props = {
+export type Props = {
 	url: string;
 	type: "github" | "facebook" | "email";
 };

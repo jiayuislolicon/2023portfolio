@@ -37,6 +37,7 @@ export default {
 			},
 			animation: {
 				"scale-large": "scale 0.3s",
+				"scale-large-reverse": "scale 0.3s reverse",
 			},
 		},
 	},
