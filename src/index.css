@@ -8,7 +8,7 @@
 }
 
 html {
-	font-size: 14px;
+	font-size: 3.7vw;
 
 	@screen lg {
 		font-size: 1.11vw;
@@ -17,7 +17,7 @@ html {
 
 @layer base {
 	body {
-		@apply text-normal;
+		@apply text-normal bg-light-yelow;
 	}
 
 	.text-normal-xl {
@@ -44,6 +44,10 @@ html {
 		@apply text-h3;
 	}
 
+	.grid-layout {
+		@apply grid grid-cols-6 gap-[15px] mx-[15px];
+	}
+
 	@screen lg {
 		.text-normal-xl {
 			@apply text-xl-lg;
@@ -67,6 +71,10 @@ html {
 
 		h3 {
 			@apply text-h3-lg;
+		}
+
+		.grid-layout {
+			@apply grid grid-cols-12 gap-[20px] mx-[45px];
 		}
 	}
 }
