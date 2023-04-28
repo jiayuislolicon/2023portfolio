@@ -9,6 +9,7 @@ export default {
 			brown: "#413635",
 			"light-yelow": "#F6F6EE",
 			white: "#ffffff",
+			"light-green": "#90D1CF",
 		},
 		fontFamily: {
 			sans: ["Barlow Condensed", "Noto Sans TC", "sans-serif"],
