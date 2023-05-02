@@ -15,11 +15,6 @@ html {
 	}
 }
 
-html,
-body {
-	overflow-x: hidden;
-}
-
 @layer base {
 	body {
 		@apply text-normal bg-light-yelow;
