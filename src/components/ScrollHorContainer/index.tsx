@@ -3,23 +3,27 @@ import { useEffect, useRef, ReactNode } from "react";
 
 type Props = {
 	children: ReactNode;
+	getContainerHeight?: Function;
+	isBottom?: Function;
 };
 
 // 注意不要在父層級(像是body, html)加入其他position屬性與overflow-hidden
 // stikcy 會無效
 
-const ScrollHorContainer = ({ children }: Props) => {
-	const stickyContainer = useRef<HTMLElement>(null);
+const ScrollHorContainer = ({ children, getContainerHeight, isBottom }: Props) => {
+	const stickyContainer = useRef<HTMLDivElement>(null);
 	const prevScrollTop = useRef(0);
 
 	const setStickyContainerSize = () => {
 		if (stickyContainer.current) {
-			const stickyContainerHeight = stickyContainer.current.children[0].scrollWidth;
-			stickyContainer.current.style.height = `${
+			const { scrollWidth } = stickyContainer.current.children[0];
+			const stickyContainerHeight =
 				window.innerWidth < window.innerHeight
-					? window.innerHeight + stickyContainerHeight
-					: stickyContainerHeight
-			}px`;
+					? window.innerHeight + scrollWidth
+					: scrollWidth;
+			stickyContainer.current.style.height = `${stickyContainerHeight}px`;
+
+			if (getContainerHeight) getContainerHeight(stickyContainerHeight);
 		}
 	};
 
@@ -69,7 +73,7 @@ const ScrollHorContainer = ({ children }: Props) => {
 	}, []);
 
 	return (
-		<section ref={stickyContainer}>
+		<div ref={stickyContainer}>
 			<div className='overflow-x-hidden flex sticky top-0'>
 				{children}
 				{/* example
@@ -78,7 +82,7 @@ const ScrollHorContainer = ({ children }: Props) => {
 					</div>
 				*/}
 			</div>
-		</section>
+		</div>
 	);
 };
 
