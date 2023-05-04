@@ -1,16 +1,17 @@
 import { cva } from "class-variance-authority";
 import { useEffect, useRef, ReactNode } from "react";
+import Button from "../Button";
 
 type Props = {
 	children: ReactNode;
-	getContainerHeight?: Function;
-	isBottom?: Function;
+	onScroll?: Function;
+	onResize?: Function;
 };
 
 // 注意不要在父層級(像是body, html)加入其他position屬性與overflow-hidden
 // stikcy 會無效
 
-const ScrollHorContainer = ({ children, getContainerHeight, isBottom }: Props) => {
+const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 	const stickyContainer = useRef<HTMLDivElement>(null);
 	const prevScrollTop = useRef(0);
 
@@ -22,8 +23,6 @@ const ScrollHorContainer = ({ children, getContainerHeight, isBottom }: Props) =
 					? window.innerHeight + scrollWidth
 					: scrollWidth;
 			stickyContainer.current.style.height = `${stickyContainerHeight}px`;
-
-			if (getContainerHeight) getContainerHeight(stickyContainerHeight);
 		}
 	};
 
@@ -32,7 +31,9 @@ const ScrollHorContainer = ({ children, getContainerHeight, isBottom }: Props) =
 		return top <= 0 && bottom > document.documentElement.clientHeight;
 	};
 
-	const handleScrollEvent = () => {
+	const handleonScroll = () => {
+		onScroll && onScroll();
+
 		if (stickyContainer.current) {
 			const isInViewport = isElementInViewport(stickyContainer.current);
 
@@ -61,13 +62,14 @@ const ScrollHorContainer = ({ children, getContainerHeight, isBottom }: Props) =
 
 		const handleResize = () => {
 			setStickyContainerSize();
+			onResize && onResize();
 		};
 
-		window.addEventListener("scroll", handleScrollEvent);
+		window.addEventListener("scroll", handleonScroll);
 		window.addEventListener("resize", handleResize);
 
 		return () => {
-			window.removeEventListener("scroll", handleScrollEvent);
+			window.removeEventListener("scroll", handleonScroll);
 			window.removeEventListener("resize", handleResize);
 		};
 	}, []);
