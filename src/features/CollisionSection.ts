@@ -154,6 +154,17 @@ export default class CollisionSection {
 
 		Composite.add(this.world, mouseConstraint);
 		this.render.mouse = mouse;
+
+		mouseConstraint.mouse.element.removeEventListener(
+			"mousewheel",
+			// @ts-ignore
+			mouseConstraint.mouse.mousewheel
+		);
+		mouseConstraint.mouse.element.removeEventListener(
+			"DOMMouseScroll",
+			// @ts-ignore
+			mouseConstraint.mouse.mousewheel
+		);
 	}
 
 	addResize() {
@@ -290,7 +301,6 @@ export default class CollisionSection {
 	}
 
 	applyItem() {
-		console.log("apply");
 		const [bodyWidth, bodyHeight] =
 			this.width < 1024
 				? [this.width * 0.22, ((this.width * 0.22) / 437) * 383]

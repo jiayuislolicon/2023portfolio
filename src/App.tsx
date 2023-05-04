@@ -1,9 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import MainVisual from "./layouts/MainVisual";
+import Works from "./layouts/Works";
+import About from "./layouts/About";
+import CardList from "./layouts/CardList";
+import Contact from "./layouts/Contact";
+import CollisionCats from "./components/CollisionCats";
 
 function App() {
-	const [count, setCount] = useState(0);
+	const [screenWidth, setScreenWidth] = useState(0);
 
-	return <div className='text-3xl font-bold underline text-center'>asdf</div>;
+	useEffect(() => {
+		const handleResize = () => {
+			setScreenWidth(window.innerWidth);
+		};
+		handleResize();
+		window.addEventListener("resize", handleResize);
+
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
+
+	return (
+		<main>
+			<MainVisual width={screenWidth} />
+			<Works />
+			<About />
+			<CollisionCats />
+			<CardList width={screenWidth} />
+			<Contact />
+		</main>
+	);
 }
 
 export default App;

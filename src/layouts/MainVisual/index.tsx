@@ -8,7 +8,7 @@ type Props = {
 
 const MainVisual = ({ width }: Props) => {
 	return (
-		<section className='pt-10'>
+		<section className='pt-10 min-h-screen'>
 			<div className='relative z-[1] flex flex-col items-center lg:flex-row lg:justify-center'>
 				<h1 className='inline-block mb-[10px] lg:mb-0 leading-none text-green-blue'>
 					JIAYU
