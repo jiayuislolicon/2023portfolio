@@ -23,15 +23,11 @@ const Contact = () => {
 
 	return (
 		<section
-			className='grid-layout min-h-screen lg:min-h-0 relative overflow-hidden pt-[90px] lg:pt-[200px]'
+			className='grid-layout min-h-screen lg:min-h-0 relative overflow-hidden mt-[90px] lg:mt-[200px]'
 			onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
 		>
-			<BgCircle
-				round
-				color='green-blue'
-				className='absolute z-[0] top-0 left-1/2 -translate-x-1/2'
-			/>
-			<h2 className='leading-none underline text-white col-start-1 col-end-7 lg:col-start-4 lg:col-end-10 text-center relative z-[1] mb-[calc(100vh_-_(90vw_+_170px))] lg:mb-0'>
+			<BgCircle color='green-blue' containerClass='w-screen left-[-15px] lg:left-[-45px]' />
+			<h2 className='leading-none underline text-white col-start-1 col-end-7 lg:col-start-4 lg:col-end-10 text-center relative z-[1] mb-[calc(100vh_-_(90vw_+_170px))] lg:mb-0 mt-[-80px] lg:mt-[200px]'>
 				GET IN
 				<br />
 				TOUCH
@@ -65,7 +61,7 @@ const Contact = () => {
 				mouseX={mousePos.x}
 				mouseY={mousePos.y}
 			/>
-			<div className='hidden lg:block bg-green-blue w-screen h-[20vw] absolute bottom-0 left-0 z-[-1]' />
+			<div className='w-screen h-[calc(100%_-_50vw)] bg-green-blue absolute bottom-0 left-0 z-[-1]'></div>
 		</section>
 	);
 };

@@ -24,7 +24,7 @@ function App() {
 	return (
 		<main>
 			<MainVisual width={screenWidth} />
-			<Works />
+			<Works width={screenWidth} />
 			<About />
 			<CollisionCats />
 			<CardList width={screenWidth} />
