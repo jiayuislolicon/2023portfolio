@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 type Props = {
 	color?: "green-blue" | "white";
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const circleVariants = cva(
-	"rounded-full w-screen h-[100vw] transition-all duration-1000 absolute top-0 left-1/2 -translate-x-1/2 z-[-1]",
+	"w-screen h-[100vw] transition-all duration-1000 absolute top-0 left-1/2 -translate-x-1/2 z-[-1]",
 	{
 		variants: {
 			/* button roundness */
@@ -37,10 +37,32 @@ const bgColor = {
 };
 
 const BgCircle = ({ color, title, containerClass, className }: Props) => {
-	const [rounded, isRounded] = useState(true);
+	const circleContainer = useRef<HTMLDivElement>(null);
+	const [isRounded, setIsRounded] = useState(false);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					const currentY = entry.boundingClientRect.y;
+					const checkIsRound = currentY > 0 && !entry.isIntersecting;
+					setIsRounded(checkIsRound);
+				});
+			},
+			{
+				threshold: 0.8,
+			}
+		);
+
+		observer.observe(circleContainer.current!);
+
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
 
 	return (
-		<div className={clsx("relative h-[50vw] z-[1]", containerClass)}>
+		<div className={clsx("relative h-[50vw] z-[1]", containerClass)} ref={circleContainer}>
 			<div
 				className={clsx(
 					"w-full h-full absolute top-0 left-0 z-[-1]",
@@ -50,7 +72,7 @@ const BgCircle = ({ color, title, containerClass, className }: Props) => {
 			<div className='absolute top-0 left-0 w-full h-full overflow-hidden'>
 				<div
 					className={circleVariants({
-						round: rounded ? "full" : "none",
+						round: isRounded ? "full" : "none",
 						color,
 						className,
 					})}
