@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { ReactComponent as Email } from "./contact-email.svg";
 import { ReactComponent as Wave } from "./contact-wave.svg";
 
-type Props = {
+export type Props = {
 	type: "email" | "wave";
 	visible: boolean;
 	className?: string;
@@ -18,29 +18,26 @@ const icons = {
 	wave: <Wave className={iconClassName} />,
 };
 
-const mouseVariants = cva(
-	"w-[120px] h-[120px] lg:w-[240px] lg:h-[240px] rounded-full bg-khaki pointer-events-none",
-	{
-		variants: {
-			visible: {
-				false: "animate-scale-large-reverse",
-				true: "animate-scale-large",
-			},
+const mouseVariants = cva("w-full h-full rounded-full bg-khaki transition-transform duration-300", {
+	variants: {
+		visible: {
+			false: "scale-0",
+			true: "scale-100",
 		},
-		defaultVariants: {
-			visible: true,
-		},
-	}
-);
+	},
+	defaultVariants: {
+		visible: true,
+	},
+});
 
 const ContactMouse = ({ type, visible, className, mouseX, mouseY }: Props) => {
 	return (
-		<button
-			style={{ transform: `translate(${mouseX}px, ${mouseY}px)` }}
-			className={mouseVariants({ className, visible })}
+		<div
+			style={{ transform: `translate(${mouseX - 120}px, ${mouseY - 240}px)` }}
+			className='w-[120px] h-[120px] lg:w-[240px] lg:h-[240px] absolute top-0 left-0 pointer-events-none z-[2]'
 		>
-			{icons[type]}
-		</button>
+			<button className={mouseVariants({ className, visible })}>{icons[type]}</button>
+		</div>
 	);
 };
 

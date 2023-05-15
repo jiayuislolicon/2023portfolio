@@ -5,6 +5,7 @@ import About from "./layouts/About";
 import CardList from "./layouts/CardList";
 import Contact from "./layouts/Contact";
 import CollisionCats from "./components/CollisionCats";
+import Header from "./components/Header";
 
 function App() {
 	const [screenWidth, setScreenWidth] = useState(0);
@@ -23,6 +24,7 @@ function App() {
 
 	return (
 		<main>
+			<Header onClick={(index: number) => console.log(index)} />
 			<MainVisual width={screenWidth} />
 			<Works width={screenWidth} />
 			<About />

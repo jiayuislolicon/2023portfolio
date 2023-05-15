@@ -15,7 +15,7 @@ const circleVariants = cva(
 		variants: {
 			/* button roundness */
 			round: {
-				none: "rounded-[0%]",
+				none: "rounded-[3%]",
 				full: "rounded-[50%]",
 			},
 			color: {

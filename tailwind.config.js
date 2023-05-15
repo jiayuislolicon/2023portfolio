@@ -32,8 +32,8 @@ export default {
 			},
 			keyframes: {
 				scale: {
-					"0%": { transform: "scale(0)" },
-					"100%": { transform: "scale(1)" },
+					"0%": { transform: "scale(0) translate(var(--pX)px, var(--py)px)" },
+					"100%": { transform: "scale(1) translate(var(--pX)px, var(--py)px)" },
 				},
 			},
 			animation: {

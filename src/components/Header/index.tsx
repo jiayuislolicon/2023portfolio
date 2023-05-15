@@ -9,8 +9,8 @@ const Header = ({ onClick }: Props) => {
 	const [isOpened, setIsOpened] = useState(true);
 
 	return (
-		<header className='fixed flex justify-between items-center w-full px-[15px] top-[10px] lg:top-[15px]'>
-			<span className='text-normal-2xl'>JIAYU</span>
+		<header className='fixed z-10 flex justify-between items-center w-full px-[15px] top-[10px] lg:top-[15px]'>
+			<span className='text-normal-2xl text-brown'>JIAYU</span>
 			<button
 				className='w-[35px] h-[35px] rounded-full relative z-[1] bg-white lg:hidden'
 				onClick={() => setIsOpened(!isOpened)}

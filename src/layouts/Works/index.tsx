@@ -65,7 +65,7 @@ const Works = ({ width }: Props) => {
 						</div>
 					</div>
 					<div className='absolute bottom-[7.3vh] grid-layout lg:bottom-[4.5vh]'>
-						<span className='text-white text-normal self-center col-start-1 col-end-4 lg:col-start-2'>
+						<span className='text-white self-center col-start-1 col-end-4 lg:col-start-2'>
 							作品說明作品說明作品說明作品說明作品說明
 						</span>
 						<Button

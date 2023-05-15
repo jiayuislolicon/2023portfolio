@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import BgCircle from "../../components/BgCircle";
-import ContactMouse from "../../components/ContactMouse";
+import ContactMouse, { Props as mouseType } from "../../components/ContactMouse";
 import IconButton, { Props as buttonInfo } from "../../components/IconButton";
 
 const buttonInfos: buttonInfo[] = [
@@ -19,26 +19,54 @@ const buttonInfos: buttonInfo[] = [
 ];
 
 const Contact = () => {
-	const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+	const container = useRef<HTMLDivElement>(null);
+	const title = useRef<HTMLHeadingElement>(null);
+	const cat = useRef<(HTMLElement | null)[]>([]);
+	const [mouseInfo, setMouseInfo] = useState<mouseType>({
+		mouseX: 0,
+		mouseY: 0,
+		visible: false,
+		type: "email",
+	});
 
 	return (
 		<section
-			className='grid-layout min-h-screen lg:min-h-0 relative overflow-hidden mt-[90px] lg:mt-[200px]'
-			onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
+			className='grid-layout min-h-screen lg:min-h-0 relative mt-[90px] lg:mt-[200px] overflow-hidden'
+			onMouseMove={(e) => {
+				let type = "";
+
+				if (cat.current.includes(e.target as HTMLElement)) type = "wave";
+
+				if ((e.target as HTMLElement) === title.current) type = "email";
+
+				setMouseInfo((prev: typeof mouseInfo) => ({
+					...prev,
+					type: type ? (type as mouseType["type"]) : "email",
+					visible: type !== "",
+					mouseX: e.screenX,
+					mouseY: e.screenY - container.current!.getBoundingClientRect().top,
+				}));
+			}}
+			ref={container}
 		>
 			<BgCircle color='green-blue' containerClass='w-screen left-[-15px] lg:left-[-45px]' />
-			<h2 className='leading-none underline text-white col-start-1 col-end-7 lg:col-start-4 lg:col-end-10 text-center relative z-[2] mb-[calc(100vh_-_(90vw_+_170px))] lg:mb-0 mt-[-80px] lg:mt-[200px]'>
+			<h2
+				ref={title}
+				className='cursor-none leading-none underline text-white col-start-1 col-end-7 lg:col-start-4 lg:col-end-10 text-center relative z-[2] mb-[calc(100vh_-_(90vw_+_170px))] lg:mb-0 mt-[-80px] lg:mt-[200px]'
+			>
 				GET IN
 				<br />
 				TOUCH
 			</h2>
 			<img
 				src='/black-contact.svg'
-				className='z-[1] absolute left-0 bottom-0 md:bottom-[-15%] w-screen h-auto max-w-none lg:hidden'
+				className='cursor-none z-[1] absolute left-0 bottom-0 md:bottom-[-15%] w-screen h-auto max-w-none lg:hidden'
+				ref={(el) => (cat.current[0] = el)}
 			/>
 			<img
 				src='/black-contact-desktop.svg'
-				className='z-[1] hidden lg:block lg:col-start-2 lg:col-end-12 relative lg:mt-[-55vh] lg:w-[calc(100%_+_40px)]'
+				className='cursor-none z-[1] hidden lg:block lg:col-start-2 lg:col-end-12 relative lg:mt-[-55vh] lg:w-[calc(100%_+_40px)]'
+				ref={(el) => (cat.current[1] = el)}
 			/>
 			<span className='relative z-[1] col-start-1 col-end-7 lg:col-start-11 lg:col-end-12 text-normal-2xl lg:text-normal text-white text-center leading-tight lg:absolute lg:bottom-[60px]'>
 				2023 JIAYU LU
@@ -55,13 +83,13 @@ const Contact = () => {
 				))}
 			</div>
 			<ContactMouse
-				visible
-				type='email'
+				visible={mouseInfo.visible}
+				type={mouseInfo.type}
 				className='absolute top-0 left-0 z-[2]'
-				mouseX={mousePos.x}
-				mouseY={mousePos.y}
+				mouseX={mouseInfo.mouseX}
+				mouseY={mouseInfo.mouseY}
 			/>
-			<div className='w-screen h-[calc(100%_-_50vw)] bg-green-blue absolute bottom-0 left-0 z-[-1]'></div>
+			<div className='w-full h-[calc(100%_-_50vw)] bg-green-blue absolute bottom-0 left-0 z-[-1]'></div>
 		</section>
 	);
 };
