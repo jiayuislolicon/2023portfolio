@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Lenis as ReactLenis } from "@studio-freight/react-lenis";
+
 import MainVisual from "./layouts/MainVisual";
 import Works from "./layouts/Works";
 import About from "./layouts/About";
@@ -23,15 +25,17 @@ function App() {
 	}, []);
 
 	return (
-		<main>
-			<Header onClick={(index: number) => console.log(index)} />
-			<MainVisual width={screenWidth} />
-			<Works width={screenWidth} />
-			<About />
-			<CollisionCats />
-			<CardList width={screenWidth} />
-			<Contact />
-		</main>
+		<ReactLenis root>
+			<main>
+				<Header onClick={(index: number) => console.log(index)} />
+				<MainVisual width={screenWidth} />
+				<Works width={screenWidth} />
+				<About />
+				<CollisionCats />
+				<CardList width={screenWidth} />
+				<Contact />
+			</main>
+		</ReactLenis>
 	);
 }
 

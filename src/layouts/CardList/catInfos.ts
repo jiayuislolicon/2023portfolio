@@ -7,12 +7,12 @@ const catInfos = [
 	{
 		id: 2,
 		className:
-			"top-[35%] left-[15px] lg:top-[45%] lg:left-[calc((100%_-_200px)_/_12_*_9_+_180px)]",
+			"top-[35%] left-[15px] lg:top-[45%] lg:left-[calc((100%_-_200px)_/_12_*_9_+_240px)]",
 		type: "gray",
 	},
 	{
 		id: 3,
-		className: "top-[48%] right-[15px] lg:top-[58%] lg:left-0",
+		className: "top-[48%] right-[15px] lg:top-[58%] lg:left-[40px]",
 		type: "black",
 	},
 	{
@@ -23,7 +23,7 @@ const catInfos = [
 	},
 	{
 		id: 5,
-		className: "top-[76%] right-[15px] lg:top-[78%] lg:right-0",
+		className: "top-[76%] right-[15px] lg:top-[78%] lg:right-[40px]",
 		type: "black",
 	},
 	{
@@ -34,7 +34,7 @@ const catInfos = [
 	},
 	{
 		id: 7,
-		className: "hidden lg:block lg:top-[95%] lg:left-0",
+		className: "hidden lg:block lg:top-[95%] lg:left-[40px]",
 		type: "khaki",
 	},
 ];

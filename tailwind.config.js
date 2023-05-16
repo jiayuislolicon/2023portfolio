@@ -40,8 +40,8 @@ export default {
 					"100%": { transform: "translate(-50%, 0)" },
 				},
 				move: {
-					"0%": { transform: "translate(0, -30%)" },
-					"100%": { transform: "translate(0, 30%)" },
+					"0%": { transform: "translate(0, -60%)" },
+					"100%": { transform: "translate(0, 60%)" },
 				},
 			},
 			animation: {
