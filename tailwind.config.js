@@ -39,11 +39,18 @@ export default {
 					"0%": { transform: "translate(0, 0)" },
 					"100%": { transform: "translate(-50%, 0)" },
 				},
+				move: {
+					"0%": { transform: "translate(0, -30%)" },
+					"100%": { transform: "translate(0, 30%)" },
+				},
 			},
 			animation: {
 				"scale-large": "scale 0.3s",
 				"scale-large-reverse": "scale 0.3s reverse",
 				marquee: "marquee 3s linear infinite",
+				move: "move 0.3s linear infinite",
+				"move-xl": "move 0.5s linear infinite",
+				"move-2xl": "move 1s linear infinite",
 			},
 		},
 	},

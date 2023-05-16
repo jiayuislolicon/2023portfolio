@@ -15,6 +15,26 @@ html {
 	}
 }
 
+@layer utilities {
+	.scroll-setting {
+		animation-play-state: paused;
+		animation-iteration-count: 1;
+		animation-fill-mode: both;
+	}
+
+	.delay {
+		animation-delay: calc(var(--scroll) * -0.3s);
+	}
+
+	.delay-xl {
+		animation-delay: calc(var(--scroll) * -0.5s);
+	}
+
+	.delay-2xl {
+		animation-delay: calc(var(--scroll) * -1s);
+	}
+}
+
 @layer base {
 	body {
 		@apply text-normal bg-light-yelow;

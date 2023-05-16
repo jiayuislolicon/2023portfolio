@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"@storybook/addon-interactions": "^7.0.5",
+		"@studio-freight/react-lenis": "^0.0.19",
 		"class-variance-authority": "^0.5.2",
 		"clsx": "^1.2.1",
 		"lottie-web": "^5.11.0",
