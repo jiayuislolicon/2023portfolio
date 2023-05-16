@@ -79,7 +79,7 @@ const Works = ({ width }: Props) => {
 						</span>
 					</div>
 					<div className='absolute top-1/2 -translate-y-[15vw] h-0 z-[2] w-full lg:-translate-y-[5vw]'>
-						<div className='overflow-hidden w-full h-[30vw] lg:h-[10vw]'>
+						<div className='overflow-hidden w-full h-[22vw] lg:h-[10vw]'>
 							<div
 								style={{ transform: `translateY(${workIndex * -20}%)` }}
 								className='transition-transform duration-500'
@@ -95,14 +95,19 @@ const Works = ({ width }: Props) => {
 										className='flex animate-marquee w-[200%]'
 										key={`works-title-${string}`}
 									>
-										{Array.from({ length: 4 }).map((_, index) => (
-											<h3
-												className='text-white leading-none w-1/4'
-												key={`works-title-marquee-${string}-${index}`}
-											>
-												{string}
-											</h3>
-										))}
+										{Array.from({ length: width < 1024 ? 2 : 4 }).map(
+											(_, index) => (
+												<h3
+													className={clsx(
+														"text-white leading-none",
+														width < 1024 ? "w-1/2" : "w-1/4"
+													)}
+													key={`works-title-marquee-${string}-${index}`}
+												>
+													{string}
+												</h3>
+											)
+										)}
 									</div>
 								))}
 							</div>
