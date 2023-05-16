@@ -28,17 +28,22 @@ export default {
 				h2: "8rem",
 				"h2-lg": "12.5rem",
 				h3: "5.5rem",
-				"h3-lg": "9rem",
+				"h3-lg": "10rem",
 			},
 			keyframes: {
 				scale: {
 					"0%": { transform: "scale(0) translate(var(--pX)px, var(--py)px)" },
 					"100%": { transform: "scale(1) translate(var(--pX)px, var(--py)px)" },
 				},
+				marquee: {
+					"0%": { transform: "translate(0, 0)" },
+					"100%": { transform: "translate(-50%, 0)" },
+				},
 			},
 			animation: {
 				"scale-large": "scale 0.3s",
 				"scale-large-reverse": "scale 0.3s reverse",
+				marquee: "marquee 3s linear infinite",
 			},
 		},
 	},
