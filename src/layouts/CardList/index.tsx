@@ -9,7 +9,7 @@ type Props = {
 const CardList = ({ width }: Props) => {
 	return (
 		<section className='grid-layout lg:gap-y-[60px] relative py-[90px] lg:pt-[160px] lg:pb-[30px]'>
-			<h2 className='leading-none text-green-blue text-center col-start-1 col-end-7 lg:col-end-13 mb-[75px] lg:mb-[360px]'>
+			<h2 className='leading-none sticky top-1/2 -translate-y-1/2 text-green-blue text-center col-start-1 col-end-7 lg:col-end-13'>
 				{width < 1024 ? (
 					<>
 						THINK
