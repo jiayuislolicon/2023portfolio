@@ -56,6 +56,7 @@ const Header = ({ onClick }: Props) => {
 					<button
 						className={clsx("text-[14px]", index < 2 && "mr-[25px]")}
 						onClick={() => onClick(index)}
+						key={`header-button-${string}`}
 					>
 						{string}
 					</button>
