@@ -4,7 +4,7 @@ import { ReactComponent as Email } from "./contact-email.svg";
 import { ReactComponent as Wave } from "./contact-wave.svg";
 
 export type Props = {
-	type: "email" | "wave";
+	type: "email" | "wave" | "";
 	visible: boolean;
 	className?: string;
 	mouseX: number;
@@ -34,9 +34,11 @@ const ContactMouse = ({ type, visible, className, mouseX, mouseY }: Props) => {
 	return (
 		<div
 			style={{ transform: `translate(${mouseX - 120}px, ${mouseY - 240}px)` }}
-			className='w-[120px] h-[120px] lg:w-[240px] lg:h-[240px] absolute top-0 left-0 pointer-events-none z-[2]'
+			className='w-[120px] h-[120px] lg:w-[240px] lg:h-[240px] absolute top-0 left-0 pointer-events-none z-[4]'
 		>
-			<button className={mouseVariants({ className, visible })}>{icons[type]}</button>
+			{type && (
+				<button className={mouseVariants({ className, visible })}>{icons[type]}</button>
+			)}
 		</div>
 	);
 };
