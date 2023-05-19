@@ -1,7 +1,7 @@
 const catInfos = [
 	{
 		id: 1,
-		className: "top-[22%] right-[15px] lg:top-[27%] lg:left-[calc((100%_-_200px)_/_4_+_60px)]",
+		className: "top-[22%] right-[15px] lg:top-[28%] lg:left-[calc((100%_-_200px)_/_4_+_60px)]",
 		type: "khaki",
 	},
 	{

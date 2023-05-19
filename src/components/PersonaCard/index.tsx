@@ -29,12 +29,8 @@ const PersonaCard = ({ content, imgUrl, title, color, className }: Props) => {
 	return (
 		<div className={cardVariants({ color: color, className })}>
 			<span className='text-normal-3xl mb-[5px] leading-none uppercase'>{title}</span>
-			<p className='text-normal mb-[50px]'>{content}</p>
-			<img
-				className='w-[calc(100%_-_40px)] lg:w-[calc(100%_-_20px)] h-auto m-auto'
-				src={imgUrl}
-				alt={title}
-			/>
+			<p className='mb-[50px] tracking-wider'>{content}</p>
+			<img className='w-[calc(100%_-_40px)] h-auto m-auto' src={imgUrl} alt={title} />
 		</div>
 	);
 };

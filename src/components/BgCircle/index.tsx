@@ -81,7 +81,7 @@ const BgCircle = ({ color, title, containerClass, className }: Props) => {
 			{title && (
 				<h2
 					className={clsx(
-						"text-center w-full absolute bottom-[-50px] lg:bottom-[150px] leading-none",
+						"text-center w-full absolute bottom-[-50px] lg:bottom-[5%] leading-none",
 						color === "white" ? "text-green-blue" : "text-white"
 					)}
 				>

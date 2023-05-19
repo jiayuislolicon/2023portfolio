@@ -33,7 +33,7 @@ const CardList = ({ width }: Props) => {
 				<PersonaCard
 					title={info.title}
 					content={info.content}
-					imgUrl={info.imgUrl}
+					imgUrl={`/about-toy-${index + 1}.svg`}
 					color={info.color}
 					className={`relative z-[1] scroll-setting ${info.className}`}
 					key={`persona-${info.title}`}
