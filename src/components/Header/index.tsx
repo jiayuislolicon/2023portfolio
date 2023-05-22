@@ -6,7 +6,21 @@ type Props = {
 };
 
 const Header = ({ onClick }: Props) => {
-	const [isOpened, setIsOpened] = useState(true);
+	const [isOpened, setIsOpened] = useState(false);
+
+	const handleMovingByAnchor = (index: number) => {
+		const sections = document.querySelectorAll(".anchor");
+		const spacing =
+			window.innerWidth < 1024 ? window.innerHeight * 0.1 : window.innerHeight * 0.2;
+
+		window.scrollTo({
+			top:
+				sections[index].getBoundingClientRect().top +
+				window.scrollY -
+				(index < 2 ? spacing : 0),
+			behavior: "smooth",
+		});
+	};
 
 	return (
 		<header className='fixed z-10 flex justify-between items-center w-full px-[15px] top-[10px] lg:top-[15px]'>
@@ -54,8 +68,11 @@ const Header = ({ onClick }: Props) => {
 			>
 				{["WORKS", "ABOUT", "CONTACT"].map((string, index) => (
 					<button
-						className={clsx("text-[14px]", index < 2 && "mr-[25px]")}
-						onClick={() => onClick(index)}
+						className={clsx(
+							"text-[14px] hover:text-green-blue transition-colors duration-300",
+							index < 2 && "mr-[25px]"
+						)}
+						onClick={() => handleMovingByAnchor(index)}
 						key={`header-button-${string}`}
 					>
 						{string}
