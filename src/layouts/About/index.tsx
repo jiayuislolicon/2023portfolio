@@ -7,7 +7,12 @@ const About = () => {
 
 	return (
 		<>
-			<BgCircle color='white' className='absolute top-0 z-[-1]' title='ABOUT' />
+			<BgCircle
+				color='white'
+				className='absolute top-0 z-[-1]'
+				title='ABOUT'
+				containerClass='lg:h-[30vw]'
+			/>
 			<section className='grid-layout py-[105px] relative lg:pt-28 lg:pb-52 lg:place-items-center'>
 				<div className='col-start-1 col-end-7 lg:col-start-2 lg:col-end-6 '>
 					<p className='mb-[45px] lg:mb-20 leading-relaxed text-brown text-normal tracking-wide lg:text-xxl-lg'>

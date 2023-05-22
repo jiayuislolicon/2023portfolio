@@ -37,7 +37,9 @@ html {
 
 @layer base {
 	body {
-		@apply text-normal bg-light-yelow;
+		@apply bg-light-yelow;
+
+		font-size: min(1rem, 16px);
 	}
 
 	.text-normal-xl {
