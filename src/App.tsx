@@ -27,7 +27,7 @@ function App() {
 	return (
 		<ReactLenis root>
 			<main>
-				<Header onClick={(index: number) => console.log(index)} />
+				<Header />
 				<MainVisual width={screenWidth} />
 				<Works width={screenWidth} />
 				<About />

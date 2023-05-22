@@ -1,11 +1,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-type Props = {
-	onClick: Function;
-};
-
-const Header = ({ onClick }: Props) => {
+const Header = () => {
 	const [isOpened, setIsOpened] = useState(false);
 
 	const handleMovingByAnchor = (index: number) => {

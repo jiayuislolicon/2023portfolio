@@ -38,7 +38,7 @@ const bgColor = {
 
 const BgCircle = ({ color, title, containerClass, className }: Props) => {
 	const circleContainer = useRef<HTMLDivElement>(null);
-	const [isRounded, setIsRounded] = useState(false);
+	const [inRange, setInRange] = useState(false);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -46,7 +46,7 @@ const BgCircle = ({ color, title, containerClass, className }: Props) => {
 				entries.forEach((entry) => {
 					const currentY = entry.boundingClientRect.y;
 					const checkIsRound = currentY > 0 && !entry.isIntersecting;
-					setIsRounded(checkIsRound);
+					setInRange(checkIsRound);
 				});
 			},
 			{
@@ -72,7 +72,7 @@ const BgCircle = ({ color, title, containerClass, className }: Props) => {
 			<div className='absolute top-0 left-0 w-full h-full overflow-hidden'>
 				<div
 					className={circleVariants({
-						round: isRounded ? "full" : "none",
+						round: inRange ? "full" : "none",
 						color,
 						className,
 					})}
@@ -81,11 +81,24 @@ const BgCircle = ({ color, title, containerClass, className }: Props) => {
 			{title && (
 				<h2
 					className={clsx(
-						"text-center w-full absolute bottom-[-50px] lg:bottom-[5%] leading-none anchor",
+						"text-center w-full absolute bottom-[-50px] lg:bottom-[5%] leading-none anchor flex items-center justify-center",
 						color === "white" ? "text-green-blue" : "text-white"
 					)}
 				>
-					{title}
+					{[...title].map((s, index) => (
+						<span
+							key={`${title}-${s}`}
+							className='transition-transform duration-500'
+							style={{
+								transform: inRange
+									? `translateY(${(index + 1) * 20}%) scaleY(1.5)`
+									: `translateY(0) scaleY(1)`,
+								transitionDelay: inRange ? `0s` : `${0.1 * index}s`,
+							}}
+						>
+							{s}
+						</span>
+					))}
 				</h2>
 			)}
 		</div>

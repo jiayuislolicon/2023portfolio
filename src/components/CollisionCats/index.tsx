@@ -8,7 +8,7 @@ type Props = {};
 const CollisionCats = ({}: Props) => {
 	const section = useRef<HTMLDivElement>(null);
 	const collisionSection = useRef<CollisionSection | null>(null);
-	const [isEntered, setIsEntered] = useState<boolean>(false);
+	const [inRange, setInRange] = useState<boolean>(false);
 
 	useEffect(() => {
 		if (section.current) {
@@ -31,10 +31,10 @@ const CollisionCats = ({}: Props) => {
 		const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					setIsEntered(true);
+					setInRange(true);
 					if (collisionSection.current) collisionSection.current.applyItem();
 				} else {
-					setIsEntered(false);
+					setInRange(false);
 				}
 			});
 		};
@@ -68,7 +68,7 @@ const CollisionCats = ({}: Props) => {
 			<div
 				className={clsx(
 					"rounded-[50%] w-[calc(100vh_-_50px)] h-[calc(100vh_-_50px)] lg:w-[calc(100vw_-_90px)] lg:h-[calc(100vw_-_90px)] absolute-center bg-green-blue z-[0] transition-transform duration-700",
-					isEntered ? "scale-100" : "scale-0"
+					inRange ? "scale-100" : "scale-0"
 				)}
 			/>
 		</div>
