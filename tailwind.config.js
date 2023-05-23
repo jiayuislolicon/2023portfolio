@@ -66,11 +66,17 @@ export default {
 					"50%": { transform: "translateY(-100%) scale(1, 1.2)" },
 					"100%": { transform: "translateY(0%) scale(1.2, 1)" },
 				},
+				rainbowMove: {
+					"0%": { transform: "translateX(150vw)" },
+					"50%": { transform: "translateX(30vw)" },
+					"100%": { transform: "translateX(-150vw)" },
+				},
 			},
 			animation: {
 				"scale-large": "scale 0.3s",
 				"scale-large-reverse": "scale 0.3s reverse",
 				marquee: "marquee 3s linear infinite",
+				"marquee-rainbow": "marquee 1s linear infinite",
 				move: "move 0.3s linear infinite",
 				"move-xl": "move 0.5s linear infinite",
 				"move-2xl": "move 1s linear infinite",
@@ -78,7 +84,9 @@ export default {
 				yarnMove: "yarnMove 3s forwards",
 				yarnRotaion: "yarnRotaion 3s forwards",
 				catBounce:
-					"catBounce 1s forwards infinite  var(--delay) cubic-bezier(0.87, 0, 0.13, 1)",
+					"catBounce 1s forwards infinite var(--delay) cubic-bezier(0.87, 0, 0.13, 1)",
+				rainbowMove:
+					"rainbowMove 3s var(--delay) both cubic-bezier(0.65, 0, 0.35, 1) infinite",
 			},
 		},
 	},
