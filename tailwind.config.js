@@ -45,6 +45,27 @@ export default {
 					"0%": { transform: "translate(0, -60%)" },
 					"100%": { transform: "translate(0, 60%)" },
 				},
+				yarnMove: {
+					"0%": { transform: "translate(100%, 0%)" },
+					"33%": { transform: "translate(0%, 0%)" },
+					"66%": { transform: "translate(0%, 0%)" },
+					"100%": { transform: "translate(100%, 0%)" },
+				},
+				yarnRotaion: {
+					"0%": { transform: "rotate(360deg)" },
+					"33%": { transform: "rotate(0deg)" },
+					"66%": { transform: "rotate(0deg)" },
+					"100%": { transform: "rotate(360deg)" },
+				},
+				catMove: {
+					"0%": { transform: "translate(-110%, 0%)" },
+					"100%": { transform: "translate(110vw, 0%)" },
+				},
+				catBounce: {
+					"0%": { transform: "translateY(0%) scale(1.2, 1)" },
+					"50%": { transform: "translateY(-100%) scale(1, 1.2)" },
+					"100%": { transform: "translateY(0%) scale(1.2, 1)" },
+				},
 			},
 			animation: {
 				"scale-large": "scale 0.3s",
@@ -53,6 +74,11 @@ export default {
 				move: "move 0.3s linear infinite",
 				"move-xl": "move 0.5s linear infinite",
 				"move-2xl": "move 1s linear infinite",
+				catMove: "catMove 3s linear var(--delay) both",
+				yarnMove: "yarnMove 3s forwards",
+				yarnRotaion: "yarnRotaion 3s forwards",
+				catBounce:
+					"catBounce 1s forwards infinite  var(--delay) cubic-bezier(0.87, 0, 0.13, 1)",
 			},
 		},
 	},
