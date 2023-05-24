@@ -2,7 +2,17 @@ import { useEffect, useState } from "react";
 import CatHead from "../../components/CatHead";
 import catInfos from "./catInfos";
 
-const GyroCatHeads = () => {
+type Props = {
+	changeSceneStatus: Function;
+};
+
+const sceneTag = {
+	khaki: "rainbow",
+	black: "fish",
+	white: "yarn",
+};
+
+const GyroCatHeads = ({ changeSceneStatus }: Props) => {
 	const [mousePosX, setMousePosX] = useState(0);
 
 	useEffect(() => {
@@ -23,8 +33,9 @@ const GyroCatHeads = () => {
 		<div className='absolute top-0 left-0 w-full h-screen'>
 			{catInfos.map((info, index) => (
 				<div
-					className={`absolute ${info.position} grid w-full place-items-center`}
+					className={`absolute ${info.position} grid w-full place-items-center cursor-pointer`}
 					key={`gyro-cat-heads-${info.type}`}
+					onClick={() => changeSceneStatus(sceneTag[info.type])}
 				>
 					<CatHead
 						isMobile

@@ -6,9 +6,16 @@ const catTypes: catType[] = ["black", "khaki", "white"];
 
 type Props = {
 	className?: string;
+	changeSceneStatus: Function;
 };
 
-const HorCatHeads = ({ className }: Props) => {
+const sceneTag = {
+	khaki: "rainbow",
+	black: "fish",
+	white: "yarn",
+};
+
+const HorCatHeads = ({ className, changeSceneStatus }: Props) => {
 	const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
 	useEffect(() => {
@@ -30,8 +37,9 @@ const HorCatHeads = ({ className }: Props) => {
 		<div className={`grid grid-cols-12 gap-5 ${className}`}>
 			{catTypes.map((type) => (
 				<div
-					className={`grid w-full place-items-center col-span-4`}
+					className={`grid w-full place-items-center col-span-4 cursor-pointer`}
 					key={`hori-cat-heads-${type}`}
+					onClick={() => changeSceneStatus(sceneTag[type])}
 				>
 					<CatHead
 						isMobile={false}

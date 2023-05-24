@@ -1,11 +1,34 @@
+import { useState } from "react";
+
+import FishesScene from "../../components/FishesScene";
 import GyroCatHeads from "../../components/GyroCatHeads";
 import HorCatHeads from "../../components/HorCatHeads";
+import RainbowScene from "../../components/RainbowScene";
+import YarnScene from "../../components/YarnScene";
 
 type Props = {
 	width: number;
 };
 
+type SceneStatus = "fish" | "yarn" | "rainbow";
+
 const MainVisual = ({ width }: Props) => {
+	const [sceneStatus, setSceneStatus] = useState<SceneStatus | "">("");
+
+	const changeSceneStatus = (status: SceneStatus) => {
+		setSceneStatus(status);
+
+		const delaySec = {
+			fish: 3000,
+			rainbow: 3000,
+			yarn: 5200,
+		};
+
+		setTimeout(() => {
+			setSceneStatus("");
+		}, delaySec[status]);
+	};
+
 	return (
 		<section className='pt-10 min-h-screen relative z-[2]'>
 			<div className='relative z-[1] flex flex-col items-center lg:flex-row lg:justify-center'>
@@ -24,7 +47,17 @@ const MainVisual = ({ width }: Props) => {
 			<span className='text-normal-2xl text-light-yelow hidden lg:block absolute bottom-[4vh] left-1/2 -translate-x-1/2 z-[2]'>
 				2023 PORTFOLIO
 			</span>
-			{width >= 1024 ? <HorCatHeads className='mt-[-7vw] px-[45px]' /> : <GyroCatHeads />}
+			{width >= 1024 ? (
+				<HorCatHeads
+					className='mt-[-7vw] px-[45px]'
+					changeSceneStatus={changeSceneStatus}
+				/>
+			) : (
+				<GyroCatHeads changeSceneStatus={changeSceneStatus} />
+			)}
+			<FishesScene visible={sceneStatus === "fish"} />
+			<YarnScene visible={sceneStatus === "yarn"} />
+			<RainbowScene visible={sceneStatus === "rainbow"} />
 		</section>
 	);
 };
