@@ -57,7 +57,7 @@ const Works = ({ width }: Props) => {
 	}, []);
 
 	return (
-		<>
+		<div className='is-green'>
 			<BgCircle
 				color='green-blue'
 				className='absolute top-0'
@@ -73,11 +73,6 @@ const Works = ({ width }: Props) => {
 					)}
 					style={{ top: `${infoStatus === "isBottom" ? containerHeight : 0}px` }}
 				>
-					<div className='absolute top-[7.3vh] grid-layout h-0 lg:top-[4.5vh] w-full'>
-						<span className=' text-white lg:text-2xl col-start-1 col-end-4 lg:col-start-2'>
-							2022
-						</span>
-					</div>
 					<div className='absolute top-1/2 -translate-y-[15vw] h-0 z-[2] w-full lg:-translate-y-[5vw]'>
 						<div className='overflow-hidden w-full h-[22vw] lg:h-[10vw]'>
 							<div
@@ -115,6 +110,8 @@ const Works = ({ width }: Props) => {
 					</div>
 					<div className='absolute bottom-[7.3vh] grid-layout lg:bottom-[4.5vh]'>
 						<span className='text-white self-center col-start-1 col-end-4 lg:col-start-2'>
+							2022
+							<br />
 							作品說明作品說明作品說明作品說明作品說明
 						</span>
 						<Button
@@ -132,7 +129,7 @@ const Works = ({ width }: Props) => {
 							ref={(el) => (works.current[index] = el)}
 						>
 							<img
-								className='col-start-2 col-end-6 w-full h-[52vh] object-cover rounded-full lg:col-end-11 lg:h-[70vh]'
+								className='col-start-3 col-end-6 w-full h-[52vh] object-cover rounded-full lg:col-end-11 lg:h-[70vh]'
 								src='https://picsum.photos/550/1200'
 								alt=''
 							/>
@@ -165,7 +162,7 @@ const Works = ({ width }: Props) => {
 					/>
 				</div> */}
 			</section>
-		</>
+		</div>
 	);
 };
 

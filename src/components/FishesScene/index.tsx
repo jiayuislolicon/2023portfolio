@@ -23,6 +23,7 @@ const FishesScene = ({ visible }: Props) => {
 								? "-scale-x-100 animate-fishMove-reverse"
 								: "animate-fishMove"
 						)}
+						key={`fish-${icon}-${index}`}
 					/>
 				))}
 			</div>

@@ -49,7 +49,7 @@ const CollisionCats = ({}: Props) => {
 
 	return (
 		<div
-			className='w-full h-screen bg-light-green relative collision-cats overflow-hidden pointer-events-none lg:pointer-events-auto'
+			className='w-full h-screen bg-light-green relative collision-cats overflow-hidden pointer-events-none lg:pointer-events-auto is-green'
 			ref={section}
 		>
 			<div className='bg-brown w-full h-full absolute-center pointer-events-none z-[2] opacity-30' />

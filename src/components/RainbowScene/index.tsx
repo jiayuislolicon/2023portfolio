@@ -24,6 +24,7 @@ const RainbowScene = ({ visible }: Props) => {
 						index < 2 && "mb-[10vh]"
 					)}
 					style={{ "--delay": `${delay[index]}s` } as CSSProperties}
+					key={`rainbow-${location}`}
 				>
 					<img
 						src={location}
