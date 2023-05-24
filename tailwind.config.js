@@ -15,6 +15,9 @@ export default {
 		fontFamily: {
 			sans: ["Barlow Condensed", "Noto Sans TC", "sans-serif"],
 		},
+		backgroundSize: {
+			"10%": "14.2%",
+		},
 		extend: {
 			fontSize: {
 				normal: "1rem",
@@ -71,6 +74,10 @@ export default {
 					"50%": { transform: "translateX(30vw)" },
 					"100%": { transform: "translateX(-150vw)" },
 				},
+				fishMove: {
+					"0%": { transform: "translateX(-110%)" },
+					"100%": { transform: "translateX(110%)" },
+				},
 			},
 			animation: {
 				"scale-large": "scale 0.3s",
@@ -87,6 +94,8 @@ export default {
 					"catBounce 1s forwards infinite var(--delay) cubic-bezier(0.87, 0, 0.13, 1)",
 				rainbowMove:
 					"rainbowMove 3s var(--delay) both cubic-bezier(0.65, 0, 0.35, 1) infinite",
+				fishMove: "fishMove 3s both cubic-bezier(0.65, 0, 0.35, 1)",
+				"fishMove-reverse": "fishMove 3s reverse both cubic-bezier(0.65, 0, 0.35, 1)",
 			},
 		},
 	},
