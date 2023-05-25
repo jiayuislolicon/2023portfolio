@@ -8,6 +8,7 @@ import CardList from "./layouts/CardList";
 import Contact from "./layouts/Contact";
 import CollisionCats from "./components/CollisionCats";
 import Header from "./components/Header";
+import Loading from "./components/Loading";
 
 function App() {
 	const [screenWidth, setScreenWidth] = useState(0);
@@ -27,6 +28,9 @@ function App() {
 	return (
 		<ReactLenis root>
 			<main>
+				<Loading
+					assets={["https://picsum.photos/550/1200", "https://picsum.photos/550/1200"]}
+				/>
 				<Header />
 				<MainVisual width={screenWidth} />
 				<Works width={screenWidth} />

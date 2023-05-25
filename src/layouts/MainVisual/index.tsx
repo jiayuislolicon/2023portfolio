@@ -30,7 +30,7 @@ const MainVisual = ({ width }: Props) => {
 	};
 
 	return (
-		<section className='pt-10 min-h-screen relative z-[2]'>
+		<section className='pt-10 lg:pt-0 min-h-screen relative z-[2]'>
 			<div className='relative z-[1] flex flex-col items-center lg:flex-row lg:justify-center'>
 				<h1 className='inline-block mb-[10px] lg:mb-0 leading-none text-green-blue'>
 					JIAYU
@@ -49,7 +49,7 @@ const MainVisual = ({ width }: Props) => {
 			</span>
 			{width >= 1024 ? (
 				<HorCatHeads
-					className='mt-[-7vw] px-[45px]'
+					className='mt-[-8vw] px-[45px]'
 					changeSceneStatus={changeSceneStatus}
 				/>
 			) : (

@@ -13,22 +13,6 @@ const sceneTag = {
 };
 
 const GyroCatHeads = ({ changeSceneStatus }: Props) => {
-	const [mousePosX, setMousePosX] = useState(0);
-
-	useEffect(() => {
-		const handleMouseMove = (e: MouseEvent) => {
-			e.preventDefault();
-			const posX = (e.clientX - window.innerWidth / 2) * 0.4;
-			setMousePosX(posX);
-		};
-
-		window.addEventListener("mousemove", handleMouseMove);
-
-		return () => {
-			window.removeEventListener("mousemove", handleMouseMove);
-		};
-	}, []);
-
 	return (
 		<div className='absolute top-0 left-0 w-full h-screen'>
 			{catInfos.map((info, index) => (
@@ -39,7 +23,7 @@ const GyroCatHeads = ({ changeSceneStatus }: Props) => {
 				>
 					<CatHead
 						isMobile
-						mouseX={mousePosX / (index + 2)}
+						mouseX={0}
 						mouseY={0}
 						type={info.type}
 						className={info.sizeClass}
