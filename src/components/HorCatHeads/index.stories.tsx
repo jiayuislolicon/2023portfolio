@@ -10,5 +10,5 @@ export default meta;
 type Story = StoryObj<typeof HorCatHeads>;
 
 export const Primary: Story = {
-	render: () => <HorCatHeads />,
+	render: () => <HorCatHeads changeSceneStatus={() => {}} />,
 };

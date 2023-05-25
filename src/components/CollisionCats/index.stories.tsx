@@ -10,5 +10,5 @@ export default meta;
 type Story = StoryObj<typeof CollisionCats>;
 
 export const Primary: Story = {
-	render: () => <CollisionCats url='' text='asdf' />,
+	render: () => <CollisionCats />,
 };

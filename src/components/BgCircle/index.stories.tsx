@@ -11,7 +11,6 @@ type Story = StoryObj<typeof BgCircle>;
 
 export const Primary: Story = {
 	args: {
-		round: false,
-		color: "green-blue"
-	}
+		color: "green-blue",
+	},
 };

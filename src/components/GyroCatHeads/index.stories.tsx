@@ -10,5 +10,5 @@ export default meta;
 type Story = StoryObj<typeof GyroCatHeads>;
 
 export const Primary: Story = {
-	render: () => <GyroCatHeads />,
+	render: () => <GyroCatHeads changeSceneStatus={() => {}} />,
 };

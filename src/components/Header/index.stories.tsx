@@ -10,11 +10,5 @@ export default meta;
 type Story = StoryObj<typeof Header>;
 
 export const Primary: Story = {
-	render: () => (
-		<Header
-			onClick={(index: any) => {
-				console.log(index);
-			}}
-		/>
-	),
+	render: () => <Header />,
 };

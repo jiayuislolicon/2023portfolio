@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import CatHead from "../../components/CatHead";
 import catInfos from "./catInfos";
 
