@@ -14,13 +14,6 @@ const CollisionCats = ({}: Props) => {
 		if (section.current) {
 			collisionSection.current = new CollisionSection(section.current);
 		}
-
-		return () => {
-			if (collisionSection.current) {
-				collisionSection.current.destroy();
-				collisionSection.current = null;
-			}
-		};
 	}, []);
 
 	useEffect(() => {
@@ -49,7 +42,7 @@ const CollisionCats = ({}: Props) => {
 
 	return (
 		<div
-			className='w-full h-screen bg-light-green relative collision-cats overflow-hidden pointer-events-none lg:pointer-events-auto is-green'
+			className='w-full h-[100lvh] bg-light-green relative collision-cats overflow-hidden pointer-events-none lg:pointer-events-auto is-green'
 			ref={section}
 		>
 			<div className='bg-brown w-full h-full absolute-center pointer-events-none z-[2] opacity-30' />

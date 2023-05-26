@@ -1,6 +1,7 @@
 import { cva } from "class-variance-authority";
 import { useEffect, useRef, ReactNode } from "react";
 import Button from "../Button";
+import isTouchDevice from "../../utils/isTouchDevice";
 
 type Props = {
 	children: ReactNode;
@@ -38,7 +39,7 @@ const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 			const isInViewport = isElementInViewport(stickyContainer.current);
 
 			if (!isInViewport) {
-				prevScrollTop.current = window.scrollY;
+				prevScrollTop.current = Math.floor(window.scrollY);
 				return;
 			}
 
@@ -51,7 +52,7 @@ const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 
 			if (canScrollHorizontally) {
 				const delta = window.scrollY - prevScrollTop.current;
-				prevScrollTop.current = window.scrollY;
+				prevScrollTop.current = Math.floor(window.scrollY);
 				stickyContainer.current.children[0].scrollLeft += delta;
 			}
 		}
@@ -66,11 +67,11 @@ const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 		};
 
 		window.addEventListener("scroll", handleonScroll);
-		window.addEventListener("resize", handleResize);
+		if (!isTouchDevice()) window.addEventListener("resize", handleResize);
 
 		return () => {
 			window.removeEventListener("scroll", handleonScroll);
-			window.removeEventListener("resize", handleResize);
+			if (!isTouchDevice()) window.removeEventListener("resize", handleResize);
 		};
 	}, []);
 

@@ -68,7 +68,7 @@ const Works = ({ width }: Props) => {
 			<section className='bg-green-blue relative' ref={container}>
 				<div
 					className={clsx(
-						"w-full h-screen bottom-0 top-0 left-0 right-0 z-[2]",
+						"w-full h-[100lvh] bottom-0 top-0 left-0 right-0 z-[2]",
 						infoStatus === "isFixed" ? "fixed" : "absolute"
 					)}
 					style={{ top: `${infoStatus === "isBottom" ? containerHeight : 0}px` }}
@@ -124,12 +124,12 @@ const Works = ({ width }: Props) => {
 				<ScrollHorContainer onResize={hanldeResize} onScroll={handleScroll}>
 					{Array.from({ length: 5 }).map((_, index) => (
 						<div
-							className='grid-layout w-screen h-screen place-items-center shrink-0'
+							className='grid-layout w-screen h-[100lvh] place-items-center shrink-0'
 							key={`works-${index}`}
 							ref={(el) => (works.current[index] = el)}
 						>
 							<img
-								className='col-start-3 col-end-6 w-full h-[52vh] object-cover rounded-full lg:col-end-11 lg:h-[70vh]'
+								className='col-start-2 col-end-6 lg:col-start-3 w-full h-[60vh] object-cover rounded-full lg:col-end-11 lg:h-[70vh]'
 								src='https://picsum.photos/550/1200'
 								alt=''
 							/>

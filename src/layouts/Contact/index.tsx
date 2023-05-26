@@ -6,6 +6,7 @@ import ContactMouse, { Props as mouseType } from "../../components/ContactMouse"
 import IconButton, { Props as buttonInfo } from "../../components/IconButton";
 import catFace from "./catFace.json";
 import clsx from "clsx";
+import isTouchDevice from "../../utils/isTouchDevice";
 
 const catFaceFrames = {
 	normalClose: [0, 12],
@@ -70,6 +71,8 @@ const Contact = () => {
 	}, []);
 
 	const handleMouseMove = (e: MouseEvent) => {
+		if (isTouchDevice()) return;
+
 		let type = "";
 
 		// on the cat
@@ -115,19 +118,19 @@ const Contact = () => {
 
 	return (
 		<section
-			className='h-screen relative overflow-hidden z-[1] anchor is-green'
+			className='h-[100lvh] relative overflow-hidden z-[1] anchor is-green'
 			onMouseMove={handleMouseMove}
 			ref={container}
 		>
 			<BgCircle color='green-blue' containerClass='top-0 left-0 w-full z-[0]' />
-			<h3
+			<h2
 				ref={title}
 				className='leading-none underline text-white text-center absolute top-28 left-1/2 -translate-x-1/2 z-[3] lg:top-[90px] cursor-pointer'
 			>
 				GET IN
 				<br />
 				TOUCH
-			</h3>
+			</h2>
 			<div className='w-full h-[60vh] lg:h-[82vh] overflow-hidden absolute bottom-0 left-0 z-[1]'>
 				<div
 					className={clsx(
@@ -152,7 +155,7 @@ const Contact = () => {
 					</div>
 				</div>
 				<div
-					className='h-[60%] w-full lg:h-[80vw] lg:w-[80vw] bg-cat-black absolute bottom-0 left-1/2 -translate-x-1/2 z-[0] lg:top-1/3 lg:rounded-full'
+					className='h-[40%] w-full lg:h-[80vw] lg:w-[80vw] bg-cat-black absolute bottom-0 left-1/2 -translate-x-1/2 z-[0] lg:top-1/3 lg:rounded-full'
 					ref={(el) => (cat.current[1] = el)}
 				/>
 			</div>

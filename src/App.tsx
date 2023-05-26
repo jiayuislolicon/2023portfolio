@@ -9,24 +9,31 @@ import Contact from "./layouts/Contact";
 import CollisionCats from "./components/CollisionCats";
 import Header from "./components/Header";
 import Loading from "./components/Loading";
+import isTouchDevice from "./utils/isTouchDevice";
 
 function App() {
 	const [screenWidth, setScreenWidth] = useState(0);
+	const [isWheelDevice, setIsWheelDevice] = useState(false);
 
 	useEffect(() => {
 		const handleResize = () => {
 			setScreenWidth(window.innerWidth);
 		};
 		handleResize();
-		window.addEventListener("resize", handleResize);
+
+		if (!isTouchDevice()) {
+			window.addEventListener("resize", handleResize);
+			setIsWheelDevice(true);
+		}
 
 		return () => {
-			window.removeEventListener("resize", handleResize);
+			if (!isTouchDevice()) window.removeEventListener("resize", handleResize);
 		};
 	}, []);
 
 	return (
-		<ReactLenis root>
+		<>
+			{isWheelDevice && <ReactLenis root />}
 			<main>
 				<Loading
 					assets={["https://picsum.photos/550/1200", "https://picsum.photos/550/1200"]}
@@ -39,7 +46,7 @@ function App() {
 				<CardList width={screenWidth} />
 				<Contact />
 			</main>
-		</ReactLenis>
+		</>
 	);
 }
 

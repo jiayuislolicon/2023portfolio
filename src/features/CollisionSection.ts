@@ -10,6 +10,7 @@ import {
 } from "matter-js";
 
 import type { Body } from "matter-js";
+import isTouchDevice from "../utils/isTouchDevice";
 
 export default class CollisionSection {
 	engine: Engine;
@@ -58,7 +59,7 @@ export default class CollisionSection {
 	init() {
 		this.createBodies();
 		this.addMouseEvent();
-		window.addEventListener("resize", this.addResize.bind(this));
+		if (!isTouchDevice()) window.addEventListener("resize", this.addResize.bind(this));
 	}
 
 	createBodies() {

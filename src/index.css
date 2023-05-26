@@ -40,6 +40,7 @@ html {
 		@apply bg-light-yelow;
 
 		font-size: min(1rem, 16px);
+		overscroll-behavior: contain;
 	}
 
 	.text-normal-xl {
