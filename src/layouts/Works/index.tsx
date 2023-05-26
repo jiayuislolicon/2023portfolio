@@ -3,6 +3,7 @@ import BgCircle from "../../components/BgCircle";
 import ScrollHorContainer from "../../components/ScrollHorContainer";
 import { useState, useEffect, useRef } from "react";
 import Button from "../../components/Button";
+import workData from "../../data/workData";
 
 type Props = {
 	width: number;
@@ -82,16 +83,10 @@ const Works = ({ width }: Props) => {
 								style={{ transform: `translateY(${workIndex * -20}%)` }}
 								className='transition-transform duration-500'
 							>
-								{[
-									"EASYCARD1",
-									"EASYCARD2",
-									"EASYCARD3",
-									"EASYCARD4",
-									"EASYCARD5",
-								].map((string) => (
+								{workData.map(({ title }) => (
 									<div
 										className='flex animate-marquee w-[200%]'
-										key={`works-title-${string}`}
+										key={`works-title-${title}`}
 									>
 										{Array.from({ length: width < 1024 ? 2 : 4 }).map(
 											(_, index) => (
@@ -100,9 +95,9 @@ const Works = ({ width }: Props) => {
 														"text-white leading-none",
 														width < 1024 ? "w-1/2" : "w-1/4"
 													)}
-													key={`works-title-marquee-${string}-${index}`}
+													key={`works-title-marquee-${title}-${index}`}
 												>
-													{string}
+													{title}
 												</h3>
 											)
 										)}
@@ -113,9 +108,9 @@ const Works = ({ width }: Props) => {
 					</div>
 					<div className='absolute bottom-[45px] grid-layout w-full lg:bottom-[4.5vh]'>
 						<span className='text-white self-center col-start-1 col-end-4 lg:col-start-2'>
-							2022
+							{workData[workIndex].year}
 							<br />
-							作品說明作品說明作品說明作品說明作品說明
+							{workData[workIndex].detail}
 						</span>
 						<Button
 							text='GO WEBSITE'
@@ -133,7 +128,7 @@ const Works = ({ width }: Props) => {
 						>
 							<img
 								className='col-start-2 col-end-6 lg:col-start-3 w-full h-[60vh] md:h-[70vh] object-cover rounded-full lg:col-end-11 lg:h-[70vh]'
-								src='https://picsum.photos/550/1200'
+								src={workData[index].img}
 								alt=''
 							/>
 						</div>
