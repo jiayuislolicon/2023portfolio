@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useState, useEffect } from "react";
+import { ReactComponent as Button } from "./header-button.svg";
 
 const Header = () => {
 	const [isOpened, setIsOpened] = useState(false);
@@ -65,7 +66,7 @@ const Header = () => {
 	}, []);
 
 	return (
-		<header className='fixed z-10 flex justify-between items-center w-full px-[15px] top-[10px] lg:top-[15px]'>
+		<header className='fixed z-10 flex justify-between items-center w-full px-[15px] top-[10px] md:top-[15px]'>
 			<button
 				className={clsx(
 					"text-normal-2xl transition-color duration-100",
@@ -76,60 +77,73 @@ const Header = () => {
 				JIAYU
 			</button>
 			<button
-				className='w-[35px] h-[35px] rounded-full relative z-[1] bg-white lg:hidden'
+				className='w-[35px] h-[35px] rounded-full relative z-[1] bg-white overflow-hidden md:hidden'
 				onClick={() => setIsOpened(!isOpened)}
 			>
-				<span
+				<Button className='w-full h-full' />
+				<div
 					className={clsx(
-						"w-[20px] h-[2px] bg-green-blue block absolute left-1/2 -translate-x-1/2 top-[10px] origin-top-left transition-transform",
-						isOpened ? "scale-x-0" : ""
+						"w-full h-full rounded-full bg-white absolute top-0 left-0 transition-transform duration-300",
+						!isOpened && "scale-0"
 					)}
-				/>
-				<span
-					className={clsx(
-						"w-[20px] h-[2px] bg-green-blue block absolute left-1/2 -translate-x-1/2 top-[16px] origin-top-left transition-transform",
-						isOpened ? "scale-x-0" : ""
-					)}
-				/>
-				<span
-					className={clsx(
-						"w-[20px] h-[2px] bg-green-blue block absolute left-1/2 -translate-x-1/2 top-[22px] origin-top-left transition-transform",
-						isOpened ? "scale-x-0" : ""
-					)}
-				/>
-				<span
-					className={clsx(
-						"w-[22px] h-[2px] bg-green-blue block absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-transform rotate-[37deg]",
-						isOpened ? "" : "scale-x-0"
-					)}
-				/>
-				<span
-					className={clsx(
-						"w-[22px] h-[2px] bg-green-blue block absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 transition-transform rotate-[-37deg]",
-						isOpened ? "" : "scale-x-0"
-					)}
-				/>
+				>
+					<svg x='0px' y='0px' viewBox='0 0 35 35'>
+						<line
+							fill='none'
+							stroke='#22A39F'
+							strokeWidth='2'
+							strokeLinecap='round'
+							x1='9.3'
+							y1='11.1'
+							x2='25.7'
+							y2='23.9'
+							className={clsx(
+								"transition-transforum duration-300 delay-300 origin-center",
+								!isOpened && "rotate-45"
+							)}
+						/>
+						<line
+							fill='none'
+							stroke='#22A39F'
+							strokeWidth='2'
+							strokeLinecap='round'
+							x1='8.8'
+							y1='23.9'
+							x2='26.2'
+							y2='11.1'
+							className={clsx(
+								"transition-transforum duration-300 delay-300 origin-center",
+								!isOpened && "-rotate-45"
+							)}
+						/>
+					</svg>
+				</div>
 			</button>
 			<div
 				className={clsx(
-					"flex absolute top-1/2 -translate-y-1/2 right-[15px] z-0 bg-white rounded-full w-[75%] max-w-[285px] py-[10px] pl-[30px] transition-opacity lg:px-[40px] lg:max-w-none lg:w-auto lg:right-1/2 lg:translate-x-1/2 ",
-					isOpened
-						? "pointer-event-auto"
-						: "opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto"
+					"absolute top-1/2 -translate-y-1/2 right-[20px] z-0 h-[35px] overflow-hidden rounded-full md:h-[40px] md:right-1/2 md:translate-x-1/2 ",
+					isOpened ? "pointer-event-auto" : "pointer-events-none md:pointer-events-auto"
 				)}
 			>
-				{["WORKS", "ABOUT", "CONTACT"].map((string, index) => (
-					<button
-						className={clsx(
-							"text-[14px] hover:text-green-blue transition-colors duration-300",
-							index < 2 && "mr-[25px]"
-						)}
-						onClick={() => handleMovingByAnchor(index)}
-						key={`header-button-${string}`}
-					>
-						{string}
-					</button>
-				))}
+				<div
+					className={clsx(
+						"flex bg-white pl-[20px] pr-[35px] md:px-[40px] h-full transition-transform duration-300",
+						!isOpened && "translate-x-full"
+					)}
+				>
+					{["WORKS", "ABOUT", "CONTACT"].map((string, index) => (
+						<button
+							className={clsx(
+								"hover:text-green-blue transition-colors duration-300",
+								index < 2 && "mr-[10px]"
+							)}
+							onClick={() => handleMovingByAnchor(index)}
+							key={`header-button-${string}`}
+						>
+							{string}
+						</button>
+					))}
+				</div>
 			</div>
 		</header>
 	);
