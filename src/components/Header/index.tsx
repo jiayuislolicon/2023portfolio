@@ -122,7 +122,7 @@ const Header = () => {
 						<button
 							className={clsx(
 								"hover:text-green-blue transition-colors duration-150",
-								index < 2 && "mr-[10px]"
+								index < 2 && "mr-[10px] lg:mr-[20px]"
 							)}
 							onClick={() => handleMovingByAnchor(index)}
 							key={`header-button-${string}`}

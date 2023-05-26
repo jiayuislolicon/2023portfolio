@@ -13,7 +13,7 @@ type Story = StoryObj<typeof CardList>;
 export const Primary: Story = {
 	render: () => (
 		<ReactLenis root>
-			<CardList width={1024} />
+			<CardList />
 		</ReactLenis>
 	),
 };
