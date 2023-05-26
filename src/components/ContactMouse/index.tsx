@@ -33,12 +33,12 @@ const mouseVariants = cva("w-full h-full rounded-full bg-khaki transition-transf
 const ContactMouse = ({ type, visible, className, mouseX, mouseY }: Props) => {
 	return (
 		<div
-			style={{ transform: `translate(${mouseX - 120}px, ${mouseY - 240}px)` }}
-			className='w-[120px] h-[120px] lg:w-[240px] lg:h-[240px] absolute top-0 left-0 pointer-events-none z-[4]'
+			style={{ transform: `translate(${mouseX - 90}px, ${mouseY - 180}px)` }}
+			className='lg:w-[180px] lg:h-[180px] absolute top-0 left-0 pointer-events-none z-[4]'
 		>
-			{type && (
-				<button className={mouseVariants({ className, visible })}>{icons[type]}</button>
-			)}
+			<button className={mouseVariants({ className, visible })}>
+				{type ? icons[type] : null}
+			</button>
 		</div>
 	);
 };
