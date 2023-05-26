@@ -31,15 +31,18 @@ const Works = ({ width }: Props) => {
 	};
 
 	const checkWorkIndex = () => {
+		let nowIndex = 0;
 		works.current.forEach((work, index) => {
 			if (
 				work &&
-				work.getBoundingClientRect().left < 0 &&
+				work.getBoundingClientRect().left < window.innerWidth * 0.33 &&
 				work.getBoundingClientRect().left > -window.innerWidth
 			) {
-				setWorkIndex(index);
+				nowIndex = index;
 			}
 		});
+
+		setWorkIndex(nowIndex);
 	};
 
 	const hanldeResize = () => {
@@ -108,7 +111,7 @@ const Works = ({ width }: Props) => {
 							</div>
 						</div>
 					</div>
-					<div className='absolute bottom-[7.3vh] grid-layout lg:bottom-[4.5vh]'>
+					<div className='absolute bottom-[7.3vh] grid-layout w-full lg:bottom-[4.5vh]'>
 						<span className='text-white self-center col-start-1 col-end-4 lg:col-start-2'>
 							2022
 							<br />

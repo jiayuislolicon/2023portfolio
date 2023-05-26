@@ -16,6 +16,8 @@ function App() {
 	const [isWheelDevice, setIsWheelDevice] = useState(false);
 
 	useEffect(() => {
+		window.scroll(0, 0);
+
 		const handleResize = () => {
 			setScreenWidth(window.innerWidth);
 		};
