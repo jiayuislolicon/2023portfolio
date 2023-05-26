@@ -111,7 +111,7 @@ const Works = ({ width }: Props) => {
 							</div>
 						</div>
 					</div>
-					<div className='absolute bottom-[7.3vh] grid-layout w-full lg:bottom-[4.5vh]'>
+					<div className='absolute bottom-[45px] grid-layout w-full lg:bottom-[4.5vh]'>
 						<span className='text-white self-center col-start-1 col-end-4 lg:col-start-2'>
 							2022
 							<br />
@@ -132,7 +132,7 @@ const Works = ({ width }: Props) => {
 							ref={(el) => (works.current[index] = el)}
 						>
 							<img
-								className='col-start-2 col-end-6 lg:col-start-3 w-full h-[60vh] object-cover rounded-full lg:col-end-11 lg:h-[70vh]'
+								className='col-start-2 col-end-6 lg:col-start-3 w-full h-[60vh] md:h-[70vh] object-cover rounded-full lg:col-end-11 lg:h-[70vh]'
 								src='https://picsum.photos/550/1200'
 								alt=''
 							/>

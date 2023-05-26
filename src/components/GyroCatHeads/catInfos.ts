@@ -7,12 +7,12 @@ type TCatInfo = {
 const catInfos: TCatInfo[] = [
 	{
 		sizeClass: "w-[50vw] h-auto md:w-[36vw]",
-		position: "bottom-[45%] md:bottom-[46%]",
+		position: "bottom-[45%] md:bottom-[40%]",
 		type: "khaki",
 	},
 	{
 		sizeClass: "w-[60vw] h-auto md:w-[38vw]",
-		position: "bottom-[25.2%]",
+		position: "bottom-[25.2%] md:bottom-[23%]",
 		type: "black",
 	},
 	{

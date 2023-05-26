@@ -125,7 +125,7 @@ const Contact = () => {
 			<BgCircle color='green-blue' containerClass='top-0 left-0 w-full z-[0]' />
 			<h2
 				ref={title}
-				className='leading-none underline text-white text-center absolute top-28 left-1/2 -translate-x-1/2 z-[3] lg:top-[90px] cursor-pointer lg:hidden'
+				className='leading-none underline text-white text-center absolute top-28 left-1/2 -translate-x-1/2 z-[3] cursor-pointer md:hidden'
 			>
 				GET IN
 				<br />
@@ -133,13 +133,13 @@ const Contact = () => {
 			</h2>
 			<h3
 				ref={title}
-				className='leading-none underline text-white text-center absolute top-28 left-1/2 -translate-x-1/2 z-[3] lg:top-[90px] cursor-pointer hidden lg:block'
+				className='leading-none underline text-white text-center absolute left-1/2 -translate-x-1/2 z-[3] top-[90px] cursor-pointer hidden md:block'
 			>
 				GET IN
 				<br />
 				TOUCH
 			</h3>
-			<div className='w-full h-[60vh] lg:h-[82vh] overflow-hidden absolute bottom-0 left-0 z-[1]'>
+			<div className='w-full h-[60vh] md:h-[82vh] overflow-hidden absolute bottom-0 left-0 z-[1]'>
 				<div
 					className={clsx(
 						"w-[110%] lg:w-[60vw] h-auto max-w-none relative left-[-5%] z-[1] lg:left-1/2 lg:-translate-x-1/2 transition-transform duration-700",

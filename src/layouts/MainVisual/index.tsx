@@ -32,15 +32,16 @@ const MainVisual = ({ width }: Props) => {
 	return (
 		<section className='pt-10 lg:pt-0 min-h-[100svh] relative z-[2]'>
 			<div className='relative z-[1] flex flex-col items-center lg:flex-row lg:justify-center'>
-				<h1 className='inline-block mb-[10px] lg:mb-0 leading-none text-green-blue'>
-					JIAYU
-				</h1>
+				<h1 className='inline-block leading-none text-green-blue'>JIAYU</h1>
 				<div className='lg:mt-[-3.88vw]'>
-					<p className='font-bold tracking-[0.32rem] lg:tracking-[0.3rem] text-[4.2rem] leading-none lg:text-[6rem] text-green-blue'>
+					<p className='font-bold tracking-[0.32rem] lg:tracking-[0.3rem] text-[4.2rem] leading-none lg:text-[6rem] text-green-blue md:hidden lg:block'>
 						FRONTEND
 					</p>
-					<p className='font-bold tracking-wide lg:tracking-normal text-[4.2rem] leading-none lg:text-[6rem] text-green-blue'>
+					<p className='font-bold tracking-wide lg:tracking-normal text-[4.2rem] leading-none lg:text-[6rem] text-green-blue md:hidden lg:block'>
 						DEVELOPER
+					</p>
+					<p className='font-bold tracking-[0.1rem] text-[2rem] leading-none text-green-blue hidden md:block lg:hidden'>
+						FRONTEND DEVELOPER
 					</p>
 				</div>
 			</div>

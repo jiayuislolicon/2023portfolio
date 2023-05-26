@@ -127,8 +127,8 @@ const Header = () => {
 			>
 				<div
 					className={clsx(
-						"flex bg-white pl-[20px] pr-[35px] md:px-[40px] h-full transition-transform duration-300 lg:transition-none",
-						!isOpened && "translate-x-full lg:translate-x-0"
+						"flex bg-white pl-[20px] pr-[35px] md:px-[40px] h-full transition-transform duration-300 md:transition-none",
+						!isOpened && "translate-x-full md:translate-x-0"
 					)}
 				>
 					{["WORKS", "ABOUT", "CONTACT"].map((string, index) => (
