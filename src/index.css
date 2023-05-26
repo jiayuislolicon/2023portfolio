@@ -7,14 +7,6 @@
 	padding: 0;
 }
 
-html {
-	font-size: 3.7vw;
-
-	@screen lg {
-		font-size: 1.11vw;
-	}
-}
-
 @layer utilities {
 	.scroll-setting {
 		animation-play-state: paused;
@@ -36,6 +28,10 @@ html {
 }
 
 @layer base {
+	html {
+		font-size: 3.7vw;
+	}
+
 	body {
 		@apply bg-light-yelow;
 
@@ -72,6 +68,10 @@ html {
 	}
 
 	@screen lg {
+		html {
+			font-size: 1.11vw;
+		}
+
 		.text-normal-xl {
 			@apply text-xl-lg;
 		}

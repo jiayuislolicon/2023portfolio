@@ -31,7 +31,10 @@ const MainVisual = ({ width }: Props) => {
 
 	return (
 		<section className='pt-10 lg:pt-0 min-h-[100svh] relative z-[2]'>
-			<div className='relative z-[1] flex flex-col items-center lg:flex-row lg:justify-center'>
+			<span className='text-normal-2xl text-light-yelow hidden lg:block absolute bottom-[4vh] left-1/2 -translate-x-1/2 z-[2]'>
+				2023 PORTFOLIO
+			</span>
+			<div className='relative z-[1] flex flex-col items-center lg:flex-row lg:justify-center lg:pt-[7vh] 2xl:pt-0'>
 				<h1 className='inline-block leading-none text-green-blue'>JIAYU</h1>
 				<div className='lg:mt-[-3.88vw]'>
 					<p className='font-bold tracking-[0.32rem] lg:tracking-[0.3rem] text-[4.2rem] leading-none lg:text-[6rem] text-green-blue md:hidden lg:block'>
@@ -45,9 +48,6 @@ const MainVisual = ({ width }: Props) => {
 					</p>
 				</div>
 			</div>
-			<span className='text-normal-2xl text-light-yelow hidden lg:block absolute bottom-[4vh] left-1/2 -translate-x-1/2 z-[2]'>
-				2023 PORTFOLIO
-			</span>
 			{width >= 1024 ? (
 				<HorCatHeads
 					className='mt-[-8vw] px-[45px]'
