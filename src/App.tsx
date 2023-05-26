@@ -45,7 +45,7 @@ function App() {
 				<Works width={screenWidth} />
 				<About />
 				<CollisionCats />
-				<CardList width={screenWidth} />
+				<CardList />
 				<Contact />
 			</main>
 		</>

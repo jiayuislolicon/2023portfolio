@@ -20,8 +20,8 @@ const FishesScene = ({ visible }: Props) => {
 						className={clsx(
 							"w-full h-auto",
 							index % 2 === 0
-								? "-scale-x-100 animate-fishMove-reverse"
-								: "animate-fishMove"
+								? "animate-fishMove-reverse"
+								: "animate-fishMove -scale-x-100"
 						)}
 						key={`fish-${icon}-${index}`}
 					/>

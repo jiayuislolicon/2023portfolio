@@ -75,8 +75,8 @@ export default {
 					"100%": { transform: "translateX(-150vw)" },
 				},
 				fishMove: {
-					"0%": { transform: "translateX(-110%)" },
-					"100%": { transform: "translateX(110%)" },
+					"0%": { transform: "translateX(-110%) scaleX(var(--tw-scale-x))" },
+					"100%": { transform: "translateX(110%) scaleX(var(--tw-scale-x))" },
 				},
 			},
 			animation: {

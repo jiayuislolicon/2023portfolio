@@ -5,11 +5,7 @@ import catInfos from "./catInfos";
 import personaInfos from "./personaInfos";
 import throttle from "../../utils/throttle";
 
-type Props = {
-	width: number;
-};
-
-const CardList = ({ width }: Props) => {
+const CardList = () => {
 	const container = useRef<HTMLElement | null>(null);
 
 	useEffect(() => {
