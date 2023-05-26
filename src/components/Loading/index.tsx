@@ -14,7 +14,6 @@ const Loading = ({ assets }: Props) => {
 	useEffect(() => {
 		assets.forEach((asset) =>
 			preloadByProcessing(asset, () => {
-				console.log("test", asset);
 				setLoadingPercents((prev) => Math.floor(prev + 100 / assets.length));
 			})
 		);

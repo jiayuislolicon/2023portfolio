@@ -10,7 +10,6 @@ export const preloadByProcessing = (src: string, addProcessing?: Function) => {
 	const img = new Image();
 	img.src = src;
 	img.onload = () => {
-		console.log("onload");
 		if (addProcessing) addProcessing();
 	};
 	img.onerror = (error) => console.error(error);

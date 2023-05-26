@@ -24,6 +24,14 @@ const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 					? window.innerHeight + scrollWidth
 					: scrollWidth;
 			stickyContainer.current.style.height = `${stickyContainerHeight}px`;
+
+			const isBelowBottom =
+				stickyContainer.current.offsetTop + stickyContainer.current.offsetHeight >
+				document.documentElement.scrollTop;
+
+			if (!isBelowBottom)
+				stickyContainer.current.children[0].scrollLeft =
+					stickyContainer.current.offsetTop + stickyContainer.current.offsetHeight;
 		}
 	};
 
@@ -43,18 +51,9 @@ const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 				return;
 			}
 
-			const isBelowTop =
-				stickyContainer.current.offsetTop < document.documentElement.scrollTop;
-			const isBelowBottom =
-				stickyContainer.current.offsetTop + stickyContainer.current.offsetHeight >
-				document.documentElement.scrollTop;
-			const canScrollHorizontally = isBelowTop && isBelowBottom;
-
-			if (canScrollHorizontally) {
-				const delta = window.scrollY - prevScrollTop.current;
-				prevScrollTop.current = Math.floor(window.scrollY);
-				stickyContainer.current.children[0].scrollLeft += delta;
-			}
+			const delta = window.scrollY - prevScrollTop.current;
+			prevScrollTop.current = Math.floor(window.scrollY);
+			stickyContainer.current.children[0].scrollLeft += delta;
 		}
 	};
 
