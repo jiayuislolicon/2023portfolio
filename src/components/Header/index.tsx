@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useState, useEffect } from "react";
 import { ReactComponent as Button } from "./header-button.svg";
+import throttle from "../../utils/throttle";
 
 const Header = () => {
 	const [isOpened, setIsOpened] = useState(false);
@@ -21,20 +22,6 @@ const Header = () => {
 	};
 
 	useEffect(() => {
-		function throttle(fn: Function, delay: number) {
-			let previousTime = 0;
-
-			return function (...args: any[]) {
-				const nowTime = new Date().getTime();
-
-				if (nowTime - previousTime > delay) {
-					// @ts-ignore
-					fn.apply(this, args);
-					previousTime = nowTime;
-				}
-			};
-		}
-
 		const handleScroll = () => {
 			const sections = document.querySelectorAll(".is-green");
 			let isDark = true;

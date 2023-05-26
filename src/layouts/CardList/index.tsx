@@ -1,8 +1,9 @@
+import { useEffect, useRef } from "react";
+
 import PersonaCard from "../../components/PersonaCard";
 import catInfos from "./catInfos";
 import personaInfos from "./personaInfos";
-import { useRef } from "react";
-import { useLenis, Lenis as ReactLenis } from "@studio-freight/react-lenis";
+import throttle from "../../utils/throttle";
 
 type Props = {
 	width: number;
@@ -10,16 +11,30 @@ type Props = {
 
 const CardList = ({ width }: Props) => {
 	const container = useRef<HTMLElement | null>(null);
-	const lenis = useLenis(() => {
-		container.current &&
-			container.current.style.setProperty(
-				"--scroll",
-				String(
-					-container.current?.getBoundingClientRect().top /
-						container.current?.offsetHeight
-				)
-			);
-	});
+
+	useEffect(() => {
+		const handleScroll = () => {
+			container.current &&
+				container.current.style.setProperty(
+					"--scroll",
+					String(
+						-container.current?.getBoundingClientRect().top /
+							container.current?.offsetHeight
+					)
+				);
+		};
+
+		handleScroll();
+
+		const processChange = throttle(() => handleScroll(), 5);
+
+		window.addEventListener("scroll", processChange);
+
+		return () => {
+			window.removeEventListener("scroll", processChange);
+		};
+	}, []);
+
 	return (
 		<section
 			className='grid-layout lg:gap-y-40 relative py-[90px] lg:pt-[160px] lg:pb-[30px]'
