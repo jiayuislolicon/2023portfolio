@@ -127,14 +127,14 @@ const Header = () => {
 			>
 				<div
 					className={clsx(
-						"flex bg-white pl-[20px] pr-[35px] md:px-[40px] h-full transition-transform duration-300",
-						!isOpened && "translate-x-full"
+						"flex bg-white pl-[20px] pr-[35px] md:px-[40px] h-full transition-transform duration-300 lg:transition-none",
+						!isOpened && "translate-x-full lg:translate-x-0"
 					)}
 				>
 					{["WORKS", "ABOUT", "CONTACT"].map((string, index) => (
 						<button
 							className={clsx(
-								"hover:text-green-blue transition-colors duration-300",
+								"hover:text-green-blue transition-colors duration-150",
 								index < 2 && "mr-[10px]"
 							)}
 							onClick={() => handleMovingByAnchor(index)}
