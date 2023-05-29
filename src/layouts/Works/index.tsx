@@ -67,9 +67,25 @@ const Works = ({ width }: Props) => {
 				className='absolute top-0'
 				title='WORKS'
 				containerClass='mt-[-20vw]'
+				isViewingWork={
+					infoStatus === "isFixed" ? workData[workIndex].background : "#22A39F"
+				}
 			/>
-			<div className='bg-green-blue h-[90px] w-full' />
-			<section className='bg-green-blue relative' ref={container}>
+			<div
+				className='h-[90px] w-full transition-colors duration-300'
+				style={{
+					backgroundColor:
+						infoStatus === "isFixed" ? workData[workIndex].background : "#22A39F",
+				}}
+			/>
+			<section
+				className='relative transition-colors duration-300'
+				style={{
+					backgroundColor:
+						infoStatus === "isFixed" ? workData[workIndex].background : "#22A39F",
+				}}
+				ref={container}
+			>
 				<div
 					className={clsx(
 						"w-full h-[100svh] bottom-0 top-0 left-0 right-0 z-[2]",
@@ -83,16 +99,19 @@ const Works = ({ width }: Props) => {
 								style={{ transform: `translateY(${workIndex * -20}%)` }}
 								className='transition-transform duration-500'
 							>
-								{workData.map(({ title }) => (
+								{workData.map(({ title, isLongWord }, index) => (
 									<div
-										className='flex animate-marquee w-[200%]'
+										className={clsx(
+											"flex animate-marquee",
+											isLongWord ? " w-[300%]" : " w-[200%]"
+										)}
 										key={`works-title-${title}`}
 									>
 										{Array.from({ length: width < 1024 ? 2 : 4 }).map(
 											(_, index) => (
 												<h3
 													className={clsx(
-														"text-white leading-none",
+														"text-white leading-none whitespace-pre",
 														width < 1024 ? "w-1/2" : "w-1/4"
 													)}
 													key={`works-title-marquee-${title}-${index}`}
@@ -113,8 +132,8 @@ const Works = ({ width }: Props) => {
 							{workData[workIndex].detail}
 						</span>
 						<Button
-							text='GO WEBSITE'
-							url=''
+							text={`GO ${workData[workIndex].type}`}
+							url={workData[workIndex].link}
 							className='col-start-4 col-end-7 place-self-end lg:col-start-10 lg:col-end-12'
 						/>
 					</div>
@@ -128,7 +147,7 @@ const Works = ({ width }: Props) => {
 						>
 							<img
 								className='col-start-2 col-end-6 lg:col-start-3 w-full h-[60vh] md:h-[70vh] object-cover rounded-full lg:col-end-11 lg:h-[70vh]'
-								src={workData[index].img}
+								src={`/work-${index + 1}.png`}
 								alt=''
 							/>
 						</div>

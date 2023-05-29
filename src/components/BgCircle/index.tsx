@@ -3,28 +3,22 @@ import clsx from "clsx";
 import { useEffect, useState, useRef } from "react";
 
 type Props = {
-	color?: "green-blue" | "white";
+	color: "green-blue" | "white";
 	containerClass?: string;
 	title?: string;
 	className?: string;
+	isViewingWork?: string;
 };
 
 const circleVariants = cva(
-	"w-screen h-[100vw] transition-all duration-1000 absolute top-0 left-1/2 -translate-x-1/2 z-[-1]",
+	"w-screen h-[100vw] absolute top-0 left-1/2 -translate-x-1/2 z-[-1] circle-transition",
 	{
 		variants: {
-			/* button roundness */
 			round: {
 				none: "rounded-[3%]",
 				full: "rounded-[50%]",
 			},
-			color: {
-				"green-blue": "bg-green-blue",
-				white: "bg-light-yelow",
-			},
 		},
-
-		// defaults
 		defaultVariants: {
 			round: "full",
 		},
@@ -36,7 +30,12 @@ const bgColor = {
 	"green-blue": "bg-light-white",
 };
 
-const BgCircle = ({ color, title, containerClass, className }: Props) => {
+const colorCode = {
+	"green-blue": "#22A39F",
+	white: "#F6F6EE",
+};
+
+const BgCircle = ({ color, title, containerClass, className, isViewingWork }: Props) => {
 	const circleContainer = useRef<HTMLDivElement>(null);
 	const [inRange, setInRange] = useState(false);
 
@@ -73,9 +72,11 @@ const BgCircle = ({ color, title, containerClass, className }: Props) => {
 				<div
 					className={circleVariants({
 						round: inRange ? "full" : "none",
-						color,
 						className,
 					})}
+					style={{
+						backgroundColor: isViewingWork ? isViewingWork : colorCode[color],
+					}}
 				/>
 			</div>
 			{title && (

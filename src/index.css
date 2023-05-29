@@ -110,3 +110,8 @@
 .absolute-center {
 	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
+
+.circle-transition {
+	transition: border-radius 1s cubic-bezier(0.4, 0, 0.2, 1),
+		background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
