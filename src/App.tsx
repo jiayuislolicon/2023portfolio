@@ -38,7 +38,7 @@ function App() {
 			{isWheelDevice && <ReactLenis root />}
 			<main>
 				<Loading
-					assets={["https://picsum.photos/550/1200", "https://picsum.photos/550/1200"]}
+					assets={Array.from({ length: 5 }).map((_, index) => `/work-${index + 1}.png`)}
 				/>
 				<Header />
 				<MainVisual width={screenWidth} />

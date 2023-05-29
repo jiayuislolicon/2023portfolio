@@ -33,7 +33,7 @@ const buttonInfos: buttonInfo[] = [
 
 const Contact = () => {
 	const container = useRef<HTMLDivElement>(null);
-	const title = useRef<HTMLHeadingElement>(null);
+	const title = useRef<HTMLAnchorElement>(null);
 	const prevType = useRef("");
 	const cat = useRef<(HTMLElement | null)[]>([]);
 	const [isEntered, setIsEntered] = useState(false);
@@ -123,21 +123,19 @@ const Contact = () => {
 			ref={container}
 		>
 			<BgCircle color='green-blue' containerClass='top-0 left-0 w-full z-[0]' />
-			<h2
-				ref={title}
-				className='leading-none underline text-white text-center absolute top-28 left-1/2 -translate-x-1/2 z-[3] cursor-pointer md:hidden'
-			>
-				GET IN
-				<br />
-				TOUCH
+			<h2 className='leading-none underline text-white text-center absolute top-28 left-1/2 -translate-x-1/2 z-[3] cursor-pointer md:hidden'>
+				<a href='mailto:lovesyndra@gmail.com' ref={title}>
+					GET IN
+					<br />
+					TOUCH
+				</a>
 			</h2>
-			<h3
-				ref={title}
-				className='leading-none underline text-white text-center absolute left-1/2 -translate-x-1/2 z-[3] top-[90px] cursor-pointer hidden md:block'
-			>
-				GET IN
-				<br />
-				TOUCH
+			<h3 className='leading-none underline text-white text-center absolute left-1/2 -translate-x-1/2 z-[3] top-[90px] cursor-pointer hidden md:block'>
+				<a href='mailto:lovesyndra@gmail.com' ref={title}>
+					GET IN
+					<br />
+					TOUCH
+				</a>
 			</h3>
 			<div className='w-full h-[60vh] md:h-[82vh] overflow-hidden absolute bottom-0 left-0 z-[1]'>
 				<div
