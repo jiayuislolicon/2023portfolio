@@ -37,17 +37,21 @@ const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 
 	const isElementInViewport = (element: HTMLElement) => {
 		const { top, bottom } = element.getBoundingClientRect();
-		return top <= 0 && bottom > document.documentElement.clientHeight;
+		return {
+			isInViewport: top <= 0 && bottom > document.documentElement.clientHeight,
+			isTop: top > 0,
+		};
 	};
 
 	const handleonScroll = () => {
 		onScroll && onScroll();
 
 		if (stickyContainer.current) {
-			const isInViewport = isElementInViewport(stickyContainer.current);
+			const { isInViewport, isTop } = isElementInViewport(stickyContainer.current);
 
 			if (!isInViewport) {
 				prevScrollTop.current = Math.floor(window.scrollY);
+				if (isTop) stickyContainer.current.children[0].scrollLeft = 0;
 				return;
 			}
 
