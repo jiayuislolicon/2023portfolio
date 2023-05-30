@@ -8,7 +8,7 @@ type Info = {
 const personaInfos: Info[] = [
 	{
 		title: "Responsible",
-		content: "充滿責任地完成專案，思考為想法與實作找出一個平衡",
+		content: "充滿責任地完成專案，與團隊溝通而思考為想法與實作找出一個平衡",
 		color: "white",
 		className: "col-start-1 col-end-5 lg:col-start-2 lg:col-end-5 mb-[55px] lg:mb-0",
 	},
@@ -20,7 +20,8 @@ const personaInfos: Info[] = [
 	},
 	{
 		title: "TECHNOLOGY",
-		content: "主要使用 React、Next 開發，Three.js 互動，同時引入 typescript 做型別檢查",
+		content:
+			"主要使用 React、Next 開發，Three.js 互動，Typescript 型別檢查，Storybook 元件測試，Xstate / Redux 狀態管理",
 		color: "white",
 		className: "col-start-2 col-end-6 lg:col-start-4 lg:col-end-7 mb-[45px] lg:mb-0",
 	},
