@@ -118,7 +118,7 @@ const Contact = () => {
 
 	return (
 		<section
-			className='h-[100lvh] relative overflow-hidden z-[1] anchor is-green'
+			className='h-screen relative overflow-hidden z-[1] anchor is-green'
 			onMouseMove={handleMouseMove}
 			ref={container}
 		>

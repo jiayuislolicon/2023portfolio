@@ -88,7 +88,7 @@ const Works = ({ width }: Props) => {
 			>
 				<div
 					className={clsx(
-						"w-full h-[100svh] bottom-0 top-0 left-0 right-0 z-[2]",
+						"w-full h-screen bottom-0 top-0 left-0 right-0 z-[2]",
 						infoStatus === "isFixed" ? "fixed" : "absolute"
 					)}
 					style={{ top: `${infoStatus === "isBottom" ? containerHeight : 0}px` }}
@@ -125,7 +125,7 @@ const Works = ({ width }: Props) => {
 							</div>
 						</div>
 					</div>
-					<div className='absolute bottom-[45px] grid-layout w-full lg:bottom-[4.5vh]'>
+					<div className='absolute bottom-[25px] grid-layout w-full lg:bottom-[4.5vh]'>
 						<span className='text-white self-center col-start-1 col-end-4 lg:col-start-2'>
 							{workData[workIndex].year}
 							<br />
@@ -141,7 +141,7 @@ const Works = ({ width }: Props) => {
 				<ScrollHorContainer onResize={hanldeResize} onScroll={handleScroll}>
 					{Array.from({ length: 5 }).map((_, index) => (
 						<div
-							className='grid-layout w-screen h-[100svh] place-items-center shrink-0'
+							className='grid-layout w-screen h-screen place-items-center shrink-0'
 							key={`works-${index}`}
 							ref={(el) => (works.current[index] = el)}
 						>

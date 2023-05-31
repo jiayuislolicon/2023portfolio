@@ -13,7 +13,7 @@ const sceneTag = {
 
 const GyroCatHeads = ({ changeSceneStatus }: Props) => {
 	return (
-		<div className='absolute top-0 left-0 w-full h-[100lvh]'>
+		<div className='absolute top-0 left-0 w-full h-screen'>
 			{catInfos.map((info) => (
 				<div
 					className={`absolute ${info.position} grid w-full place-items-center cursor-pointer`}

@@ -279,8 +279,8 @@ export default class CollisionSection {
 							x: this.width * 0.88,
 							y: 0,
 							type: "black",
-							width: this.width * 0.44,
-							height: ((this.width * 0.44) / 437) * 383,
+							width: this.width * 0.2,
+							height: ((this.width * 0.2) / 437) * 383,
 						},
 						{
 							x: this.width * 0.2,

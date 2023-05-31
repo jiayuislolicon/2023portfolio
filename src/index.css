@@ -37,6 +37,7 @@
 
 		font-size: min(1rem, 16px);
 		overscroll-behavior: contain;
+		touch-action: pan-x pan-y;
 	}
 
 	.text-normal-xl {

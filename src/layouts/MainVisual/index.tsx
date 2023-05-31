@@ -30,7 +30,7 @@ const MainVisual = ({ width }: Props) => {
 	};
 
 	return (
-		<section className='pt-10 lg:pt-0 min-h-[100svh] relative z-[2]'>
+		<section className='pt-10 lg:pt-0 min-h-screen h-screen relative z-[2]'>
 			<span className='text-normal-2xl text-light-yelow hidden lg:block absolute bottom-[4vh] left-1/2 -translate-x-1/2 z-[2]'>
 				2023 PORTFOLIO
 			</span>
