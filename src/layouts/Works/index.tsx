@@ -1,8 +1,11 @@
+import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
+
 import BgCircle from "../../components/BgCircle";
-import { useState, useEffect, useRef, WheelEvent, useMemo } from "react";
 import Button from "../../components/Button";
+
 import workData from "../../data/workData";
+import throttle from "../../utils/throttle";
 
 type Props = {
 	width: number;
@@ -38,10 +41,11 @@ const Works = ({ width, height }: Props) => {
 	};
 
 	useEffect(() => {
-		window.addEventListener("scroll", handleScroll, { passive: true });
+		const processChange = throttle(() => handleScroll(), 50);
+		window.addEventListener("scroll", processChange, { passive: true });
 
 		return () => {
-			window.removeEventListener("scroll", handleScroll);
+			window.removeEventListener("scroll", processChange);
 		};
 	}, [height]);
 

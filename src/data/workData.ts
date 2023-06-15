@@ -37,7 +37,7 @@ const workData = [
 	},
 	{
 		title: "1420Hz",
-		detail: "兒盟為青少年打造的倡議網站",
+		detail: "兒福聯盟為青少年打造的倡議網站",
 		year: "2021",
 		link: "https://www.1420hz.org.tw/",
 		isLongWord: true,
