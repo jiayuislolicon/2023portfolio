@@ -17,6 +17,7 @@ import isTouchDevice from "./utils/isTouchDevice";
 function App() {
 	const [screenWidth, setScreenWidth] = useState(0);
 	const [screenHeight, setScreenHeight] = useState(0);
+	const [loadingAssets, setLoadingAssets] = useState<string[]>([]);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -25,7 +26,14 @@ function App() {
 		};
 		handleResize();
 
-		if (!isTouchDevice()) {
+		const isTouchDev = isTouchDevice();
+		const assets = Array.from({ length: 5 }).map(
+			(_, index) => `/work-${index + 1}${isTouchDev ? "-m" : ""}.jpg`
+		);
+
+		setLoadingAssets(assets);
+
+		if (!isTouchDev) {
 			window.addEventListener("resize", handleResize);
 		}
 
@@ -38,16 +46,14 @@ function App() {
 		requestAnimationFrame(raf);
 
 		return () => {
-			if (!isTouchDevice()) window.removeEventListener("resize", handleResize);
+			if (!isTouchDev) window.removeEventListener("resize", handleResize);
 		};
 	}, []);
 
 	return (
 		<>
 			<main>
-				<Loading
-					assets={Array.from({ length: 5 }).map((_, index) => `/work-${index + 1}.jpg`)}
-				/>
+				<Loading assets={loadingAssets} />
 				<Header />
 				<MainVisual width={screenWidth} />
 				<Works width={screenWidth} height={screenHeight} />

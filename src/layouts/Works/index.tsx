@@ -113,11 +113,18 @@ const Works = ({ width, height }: Props) => {
 								className='col-start-4 col-end-7 place-self-end lg:col-start-10 lg:col-end-12'
 							/>
 						</div>
-						<img
-							className='col-start-2 col-end-6 lg:col-start-3 w-full h-[60vh] md:h-[70vh] object-cover rounded-full lg:col-end-11 lg:h-[70vh]'
-							src={`/work-${workIndex + 1}.jpg`}
-							alt={workData[workIndex].title}
-						/>
+
+						<picture className='col-start-2 col-end-6 lg:col-start-3 w-full h-[60vh] md:h-[70vh] lg:col-end-11 lg:h-[70vh]'>
+							<source
+								media='(min-width: 1024px)'
+								srcSet={`/work-${workIndex + 1}.jpg`}
+							/>
+							<img
+								className='w-full h-full object-cover rounded-full'
+								src={`/work-${workIndex + 1}-m.jpg`}
+								alt={workData[workIndex].title}
+							/>
+						</picture>
 					</div>
 					<div ref={spacingSection} style={{ height: height * workData.length * 1 }} />
 				</section>

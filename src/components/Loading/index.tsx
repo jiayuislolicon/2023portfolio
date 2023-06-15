@@ -12,12 +12,14 @@ const Loading = ({ assets }: Props) => {
 	const [isFinish, setIsFinish] = useState(false);
 
 	useEffect(() => {
-		assets.forEach((asset) =>
-			preloadByProcessing(asset, () => {
-				setLoadingPercents((prev) => Math.floor(prev + 100 / assets.length));
-			})
-		);
-	}, []);
+		if (assets.length !== 0) {
+			assets.forEach((asset) =>
+				preloadByProcessing(asset, () => {
+					setLoadingPercents((prev) => Math.floor(prev + 100 / assets.length));
+				})
+			);
+		}
+	}, [assets]);
 
 	useEffect(() => {
 		if (loadingPercents === 100) {
