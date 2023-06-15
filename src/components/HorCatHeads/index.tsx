@@ -26,7 +26,7 @@ const HorCatHeads = ({ className, changeSceneStatus }: Props) => {
 			setMousePos({ x: posX, y: posY });
 		};
 
-		window.addEventListener("mousemove", handleMouseMove);
+		window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
 		return () => {
 			window.removeEventListener("mousemove", handleMouseMove);

@@ -34,7 +34,7 @@ function App() {
 		setLoadingAssets(assets);
 
 		if (!isTouchDev) {
-			window.addEventListener("resize", handleResize);
+			window.addEventListener("resize", handleResize, { passive: true });
 		}
 
 		const lenis = new Lenis();

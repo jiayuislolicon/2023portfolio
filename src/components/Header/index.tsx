@@ -45,7 +45,7 @@ const Header = () => {
 			setNameIsDark(isDark);
 		}, 300);
 
-		window.addEventListener("scroll", processChange);
+		window.addEventListener("scroll", processChange, { passive: true });
 
 		return () => {
 			window.removeEventListener("scroll", processChange);
@@ -60,12 +60,14 @@ const Header = () => {
 					nameIsDark ? "text-brown" : "text-white"
 				)}
 				onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+				aria-label='go top'
 			>
 				JIAYU
 			</button>
 			<button
 				className='w-[35px] h-[35px] rounded-full relative z-[1] bg-white overflow-hidden md:hidden'
 				onClick={() => setIsOpened(!isOpened)}
+				aria-label='open menu'
 			>
 				<Button className='w-full h-full' />
 				<div
@@ -126,6 +128,7 @@ const Header = () => {
 							)}
 							onClick={() => handleMovingByAnchor(index)}
 							key={`header-button-${string}`}
+							aria-label={`open ${string}`}
 						>
 							{string}
 						</button>

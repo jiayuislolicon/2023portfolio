@@ -18,8 +18,11 @@ const iconSrc = {
 
 const IconButton = ({ url, type }: Props) => {
 	return (
-		<a href={url} target='_blank' rel='noreferrer'>
-			<button className='w-[45px] h-[45px] rounded-full bg-light-yelow group relative'>
+		<a href={url} target='_blank' rel='noreferrer' aria-label={type}>
+			<button
+				className='w-[45px] h-[45px] rounded-full bg-light-yelow group relative'
+				aria-label={type}
+			>
 				<div className='w-full h-full rounded-full absolute top-0 left-0 bg-brown scale-0 group-hover:scale-100 transition-transform duration-300 z-0' />
 				<span className='hidden'>{type}</span>
 				{iconSrc[type]}

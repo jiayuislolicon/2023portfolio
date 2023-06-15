@@ -124,14 +124,14 @@ const Contact = () => {
 		>
 			<BgCircle color='green-blue' containerClass='top-0 left-0 w-full z-[0]' />
 			<h2 className='leading-none underline text-white text-center absolute top-28 left-1/2 -translate-x-1/2 z-[3] cursor-pointer md:hidden'>
-				<a href='mailto:lovesyndra@gmail.com' ref={title}>
+				<a href='mailto:lovesyndra@gmail.com' aria-label='email' ref={title}>
 					GET IN
 					<br />
 					TOUCH
 				</a>
 			</h2>
 			<h3 className='leading-none underline text-white text-center absolute left-1/2 -translate-x-1/2 z-[3] top-[90px] cursor-pointer hidden md:block'>
-				<a href='mailto:lovesyndra@gmail.com' ref={title}>
+				<a href='mailto:lovesyndra@gmail.com' aria-label='email' ref={title}>
 					GET IN
 					<br />
 					TOUCH
@@ -156,7 +156,7 @@ const Contact = () => {
 							}px, ${mouseInfo.type !== "wave" ? 0 : mouseInfo.mouseY / 10}px)`,
 						}}
 					>
-						<img src='/black-contact.svg' className='w-full' />
+						<img src='/black-contact.svg' className='w-full' alt='' />
 						<div className='w-full h-auto absolute top-0 left-0 z-[1]'>{View}</div>
 					</div>
 				</div>

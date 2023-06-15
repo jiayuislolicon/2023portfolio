@@ -24,7 +24,7 @@ const CardList = () => {
 
 		const processChange = throttle(() => handleScroll(), 5);
 
-		window.addEventListener("scroll", processChange);
+		window.addEventListener("scroll", processChange, { passive: true });
 
 		return () => {
 			window.removeEventListener("scroll", processChange);
@@ -60,6 +60,7 @@ const CardList = () => {
 						index / 2 === 0 ? "animate-move-2xl delay-2xl" : "animate-move-xl delay-xl"
 					}`}
 					key={`${info.type}-${info.id}`}
+					alt=''
 				/>
 			))}
 		</section>

@@ -57,6 +57,7 @@ const Loading = ({ assets }: Props) => {
 								src={location}
 								className={clsx("w-full h-auto origin-bottom animate-catBounce")}
 								style={{ "--delay": `${index * -0.3}s` } as CSSProperties}
+								alt=''
 							/>
 						</div>
 					)

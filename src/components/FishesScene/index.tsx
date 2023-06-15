@@ -24,6 +24,7 @@ const FishesScene = ({ visible }: Props) => {
 								: "animate-fishMove -scale-x-100"
 						)}
 						key={`fish-${icon}-${index}`}
+						alt=''
 					/>
 				))}
 			</div>

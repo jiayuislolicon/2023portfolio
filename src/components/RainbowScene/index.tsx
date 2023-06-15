@@ -32,6 +32,7 @@ const RainbowScene = ({ visible }: Props) => {
 							"h-[21vh] w-auto relative z-[1]",
 							index < 2 && "-scale-x-100"
 						)}
+						alt=''
 					/>
 					<div className='h-[16vh] w-[100vh] lg:w-[66vw] relative left-[-5%] lg:left-[-2%] z-0 overflow-hidden'>
 						<div className='animate-marquee-rainbow flex h-full'>
@@ -43,6 +44,7 @@ const RainbowScene = ({ visible }: Props) => {
 										"h-full w-auto",
 										i % 2 !== 0 && " translate-y-[5%]"
 									)}
+									alt=''
 								/>
 							))}
 						</div>

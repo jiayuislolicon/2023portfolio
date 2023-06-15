@@ -68,8 +68,8 @@ const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 			onResize && onResize();
 		};
 
-		window.addEventListener("scroll", handleonScroll);
-		if (!isTouchDevice()) window.addEventListener("resize", handleResize);
+		window.addEventListener("scroll", handleonScroll, { passive: true });
+		if (!isTouchDevice()) window.addEventListener("resize", handleResize, { passive: true });
 
 		return () => {
 			window.removeEventListener("scroll", handleonScroll);

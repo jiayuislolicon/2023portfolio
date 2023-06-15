@@ -25,6 +25,7 @@ const YarnScene = ({ visible }: Props) => {
 						src={location}
 						className='h-full w-auto animate-catBounce origin-bottom'
 						style={{ "--delay": `${index * 0.3}s` } as CSSProperties}
+						alt=''
 					/>
 				</div>
 			))}

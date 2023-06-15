@@ -36,7 +36,7 @@ const ContactMouse = ({ type, visible, className, mouseX, mouseY }: Props) => {
 			style={{ transform: `translate(${mouseX - 90}px, ${mouseY - 180}px)` }}
 			className='lg:w-[180px] lg:h-[180px] absolute top-0 left-0 pointer-events-none z-[4]'
 		>
-			<button className={mouseVariants({ className, visible })}>
+			<button className={mouseVariants({ className, visible })} aria-label='mouse'>
 				{type ? icons[type] : null}
 			</button>
 		</div>

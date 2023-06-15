@@ -59,7 +59,8 @@ export default class CollisionSection {
 	init() {
 		this.createBodies();
 		this.addMouseEvent();
-		if (!isTouchDevice()) window.addEventListener("resize", this.addResize.bind(this));
+		if (!isTouchDevice())
+			window.addEventListener("resize", this.addResize.bind(this), { passive: true });
 	}
 
 	createBodies() {
