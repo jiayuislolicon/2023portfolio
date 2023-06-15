@@ -82,7 +82,7 @@ export default {
 			animation: {
 				"scale-large": "scale 0.3s",
 				"scale-large-reverse": "scale 0.3s reverse",
-				marquee: "marquee 3s linear infinite",
+				marquee: "marquee 5s linear infinite",
 				"marquee-rainbow": "marquee 1s linear infinite",
 				move: "move 0.3s linear infinite",
 				"move-xl": "move 0.5s linear infinite",

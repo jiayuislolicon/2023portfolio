@@ -44,8 +44,6 @@ const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 	};
 
 	const handleonScroll = () => {
-		onScroll && onScroll();
-
 		if (stickyContainer.current) {
 			const { isInViewport, isTop } = isElementInViewport(stickyContainer.current);
 
@@ -56,8 +54,9 @@ const ScrollHorContainer = ({ children, onScroll, onResize }: Props) => {
 			}
 
 			const delta = window.scrollY - prevScrollTop.current;
+			onScroll && onScroll(delta);
 			prevScrollTop.current = Math.floor(window.scrollY);
-			stickyContainer.current.children[0].scrollLeft += delta;
+			// stickyContainer.current.children[0].scrollLeft += delta;
 		}
 	};
 

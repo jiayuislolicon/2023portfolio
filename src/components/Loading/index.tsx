@@ -17,15 +17,13 @@ const Loading = ({ assets }: Props) => {
 				setLoadingPercents((prev) => Math.floor(prev + 100 / assets.length));
 			})
 		);
-
-		// return () => {
-		// 	setLoadingPercents(0);
-		// 	setIsFinish(false);
-		// };
 	}, []);
 
 	useEffect(() => {
-		if (loadingPercents === 100) setIsFinish(true);
+		if (loadingPercents === 100) {
+			setIsFinish(true);
+			setTimeout(() => window.scrollTo(0, 0), 0);
+		}
 	}, [loadingPercents]);
 
 	return (
