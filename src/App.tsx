@@ -1,15 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, lazy } from "react";
+import Lenis from "@studio-freight/lenis";
+
+import Header from "./components/Header";
+import Loading from "./components/Loading";
 
 import MainVisual from "./layouts/MainVisual";
 import Works from "./layouts/Works";
-import About from "./layouts/About";
-import CardList from "./layouts/CardList";
-import Contact from "./layouts/Contact";
-import CollisionCats from "./components/CollisionCats";
-import Header from "./components/Header";
-import Loading from "./components/Loading";
+
+const About = lazy(() => import("./layouts/About"));
+const CollisionCats = lazy(() => import("./components/CollisionCats"));
+const CardList = lazy(() => import("./layouts/CardList"));
+const Contact = lazy(() => import("./layouts/Contact"));
+
 import isTouchDevice from "./utils/isTouchDevice";
-import Lenis from "@studio-freight/lenis";
 
 function App() {
 	const [screenWidth, setScreenWidth] = useState(0);
