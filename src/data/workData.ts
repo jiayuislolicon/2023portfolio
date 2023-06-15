@@ -1,7 +1,7 @@
 const workData = [
 	{
 		title: "THE RAPPERS2",
-		detail: "大嘻哈時代2 推出 NFT，會根據選手晉級和觀眾投票升級狀態",
+		detail: "大嘻哈時代 2 的選手 NFT",
 		year: "2023",
 		link: "https://rappers-card.vercel.app/",
 		isLongWord: true,
@@ -10,17 +10,16 @@ const workData = [
 	},
 	{
 		title: "EASYCARD",
-		detail: "悠遊卡公司慶祝 20 周年的減碳大富翁，一款根據悠遊卡數據養成植物的小遊戲",
+		detail: "悠遊卡公司慶祝 20 周年的減碳大富翁",
 		year: "2022",
 		link: "https://www.facebook.com/watch/?v=766933894637555",
 		isLongWord: false,
 		background: "#106bb1",
 		type: "VIDEO",
 	},
-	// { title: "BULAB", detail: "", year: "2022", link: "https://www.bu-lab.com.tw/", img: "" },
 	{
 		title: "ASMEIR NFT",
-		detail: "aMEI ASMR 世界巡迴演唱會推出的線上感官體驗，完成後即可獲得專屬於你的 NFT",
+		detail: "aMEI ASMR 演唱會推出的線上感官體驗",
 		year: "2022",
 		link: "https://astest.vercel.app/",
 		isLongWord: false,
@@ -29,7 +28,7 @@ const workData = [
 	},
 	{
 		title: "TDRI CARD",
-		detail: "台灣設計研究院的 2022 新年賀卡，透過轉動角度找出隱藏文字",
+		detail: "台灣設研院 2022 新年賀卡",
 		year: "2022",
 		link: "https://tdri-2022card.dosomething-studio.com",
 		isLongWord: false,
@@ -38,7 +37,7 @@ const workData = [
 	},
 	{
 		title: "1420Hz",
-		detail: "兒福聯盟 30 周年推出 14~20 歲青少年的倡議網站，能在平台上發起話題或投稿提案而讓兒福去執行實現",
+		detail: "兒盟為青少年打造的倡議網站",
 		year: "2021",
 		link: "https://www.1420hz.org.tw/",
 		isLongWord: true,

@@ -14,38 +14,19 @@ const Works = ({ width, height }: Props) => {
 	const spacingSection = useRef<HTMLDivElement>(null);
 	const [isInRange, setInRange] = useState(false);
 	const [workIndex, setWorkIndex] = useState(0);
-	const indexParams = useMemo(
-		() =>
-			width < 1440
-				? { magnification: 1, rest: 1, range: 1 }
-				: { magnification: 0.5, rest: 2, range: 2 },
-		[width]
-	);
 
 	const checkWorkIndex = () => {
 		const contentTop = spacingSection.current!.getBoundingClientRect().top;
 		const inRange =
 			contentTop < window.innerHeight + 100 &&
-			contentTop >
-				-height * indexParams.magnification * (workData.length - indexParams.range);
+			contentTop > -height * 1 * (workData.length - 1);
 
 		if (inRange) {
 			setInRange(true);
 			setWorkIndex(() =>
 				contentTop > 0
-					? Math.max(
-							Math.floor(
-								indexParams.rest - contentTop / (height * indexParams.magnification)
-							),
-							0
-					  )
-					: Math.min(
-							Math.floor(
-								-contentTop / (height * indexParams.magnification) +
-									indexParams.rest
-							),
-							workData.length - 1
-					  )
+					? Math.max(Math.floor(1 - contentTop / (height * 1)), 0)
+					: Math.min(Math.floor(-contentTop / (height * 1) + 1), workData.length - 1)
 			);
 		} else {
 			setInRange(false);
@@ -88,7 +69,7 @@ const Works = ({ width, height }: Props) => {
 					ref={container}
 				>
 					<div className='grid-layout w-screen h-screen place-items-center shrink-0 sticky top-0'>
-						<div className='absolute left-0 top-1/2 -translate-y-[15vw] h-0 z-[2] w-full lg:-translate-y-[5vw]'>
+						<div className='absolute left-0 top-1/2 -translate-y-[15vw] h-0 z-[2] w-full lg:-translate-y-[5vw] pointer-events-none'>
 							<div className='overflow-hidden w-full h-[22vw] lg:h-[10vw]'>
 								<div
 									style={{ transform: `translateY(${workIndex * -20}%)` }}
@@ -138,10 +119,7 @@ const Works = ({ width, height }: Props) => {
 							alt={workData[workIndex].title}
 						/>
 					</div>
-					<div
-						ref={spacingSection}
-						style={{ height: height * workData.length * indexParams.magnification }}
-					/>
+					<div ref={spacingSection} style={{ height: height * workData.length * 1 }} />
 				</section>
 			</div>
 		</>
